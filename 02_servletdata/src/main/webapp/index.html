@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>서블릿다루기</title>
+</head>
+<body>
+	<h2>서블릿객체 이용하기</h2>
+	<h4>클라이언트 요청 응답하기</h4>
+	<h5><a href="/02_servletdata/basicrequest.do">서블릿으로 기본요청처리하기</a></h5>
+	<p>
+		<form action = "/02_servletdata/basicrequest.do" method="post">
+			<input type="submit" value="전송">
+		</form>
+	</p>
+	
+	<h2>클라이언트가 보낸 데이터 처리하기</h2>
+	<p>클라이언트가 보낸 데이터는 HttpServletRequest객체를 이용해서<br> 
+	   서벌에서 가져올수 있다.
+	</p>
+	
+	<h3>
+	<a href="/02_servletdata/basicdata.do?testdata=test">querystring으로 보낸 데이터 확인</a>
+	</h3>
+	<form action="/02_servletdata/basicdata.do">
+		<input type="text" name="testdata">
+		<input type="submit" value="데이터전송">
+	</form>
+	
+	<h3>클라이언트가 보낸 데이터 처리하기2</h3> 
+	<h3><a href="/02_servletdata/views/persontest.html">개인취향테스트</a></h3> 	
+	
+	<h3>클라이언트가 보낸 데이터 처리하기3</h3>
+	<h3><a href="/02_servletdata/views/membertest.html">회원가입</a></h3>
+	
+	<h2>서블릿에서 다른 서블릿, 페이지를 요청하는 방법</h2>
+	<ul>
+		<li>RequestDispatcher객체를 이용해서 전환하기 -> forward</li>
+		<li>HttpServletResponse객체의 sendRedirect()메소드 이용하기</li>
+	</ul>
+	<h3><a href="/02_servletdata/views/persontest2.html">서버내에서 다른 서블릿 호출하기 -> requestDispatcher</a></h3>
+	<h3><a href="/02_servletdata/views/persontest3.html">서버내에서 다른 서블릿 재요청시키기 -> sendRedirect</a></h3>
+	
+	
+	<h2><a href="/02_servletdata/views/board/insertboard.html">게시글등록하는 화면</a></h2>
+	
+	<h3>서버에서 데이터를 저장하는 객체</h3>
+	<ul>
+		<li>HttpServletRequest<br>
+			1회용 데이터를 저장하는 저장소 -> 요청하고 응답이 완료될때까지 유지가 되는 데이터
+		</li>
+		<li>
+			HttpSession<br>
+			원하는 시점에서 생성해서 원하는 시점까지 저장할수 있는 저장소(사용자 인증수단으로 많이 사용, 원하는 데이터를 가지고 있어야 할때 사용 예) 최근본상품같은 경우)
+		</li>
+		<li>
+			ServletContext<br>
+			서버가 실행되고 종료될때까지 유지하는 저장소
+		</li>
+	</ul>
+	<p>
+		각 객체 데이터를 저장하는 방법<br>
+		객체명.setAttribute("key", value:Object);<br>
+		저장된 값 가져오기<br>
+		객체명.getAttribute("key"); // 반환형 object 형변환해서 사용<br>
+		저장된 값을 삭제하기<br>
+		객체명.removeAttribute("key");
+	</p>
+	<h3><a href="/02_servletdata/sharedata.do">데이터 저장객체 활용하기</a></h3>
+	<h3><a href="/02_servletdata/extraInfo.do">request객체에 추가정보확인</a></h3>
+	
+	<h2>로그인 구현하기</h2>
+	<form action="/02_servletdata/loginend.do" method="post">
+		<input type="text" name="userId"><br>
+		<input type="password" name="password"><br>
+		<input type="submit" value="로그인">
+	</form>	
+	
+	
+	
+	
+	
+	
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>insertBoard</title>
+</head>
+<body>
+	<h2>게시글을 등록하는 화면</h2>
+	<form action="/02_servletdata/requestdispatcherinsertboard.do">
+		<ul>
+			<li>
+				<label>제목 <input type="text" name="title"></label>
+			</li>
+			<li>
+				<label>작성자 <input type="text" name="writer"></label>
+			</li>
+			<li>
+				<select name="content">
+				<option value="내용">내용</option>
+				</select>
+			<li>
+				<textarea cols="50" rows="10" name="info"></textarea>
+			</li>
+		</ul>
+		<input type="submit" value="제출">
+		<input type="reset" value="취소">
+	</form>
+	
+</body>
+</html>

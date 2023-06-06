@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
 <%@ include file="/views/common/header.jsp" %>    
 <section id="content">
 	<h2 align="center" style="margin-top:200px">
-		¾È³çÇÏ¼¼¿ä,MVCÀÔ´Ï´Ù.
+		ì•ˆë…•í•˜ì„¸ìš”,MVCìž…ë‹ˆë‹¤.
 	</h2>
 </section>
 <%@ include file="/views/common/footer.jsp" %>

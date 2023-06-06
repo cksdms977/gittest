@@ -1,4 +1,4 @@
-package com.web.member.controller;
+package com.web.notice.controller;
 
 import java.io.IOException;
 
@@ -9,21 +9,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.web.member.model.dto.MemberDto;
-import com.web.member.model.service.MemberSerivce;
-
+import com.web.notice.dto.NoticeDto;
+import com.web.notice.service.NoticeService;
 
 /**
- * Servlet implementation class UpdateMemberServlet
+ * Servlet implementation class NoticeUpdateServlet
  */
-@WebServlet("/member/memberUpdate.do")
-public class UpdateMemberServlet extends HttpServlet {
+@WebServlet("/notice/updatenotice.do")
+public class NoticeUpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UpdateMemberServlet() {
+    public NoticeUpdateServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,34 +31,30 @@ public class UpdateMemberServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		MemberDto m = MemberDto.builder()
-				.userId(request.getParameter("userId"))
-				.userName(request.getParameter("userName"))
-				.age(Integer.parseInt(request.getParameter("age")))
-				.gender(request.getParameter("gender").charAt(0))
-				.email(request.getParameter("email"))
-				.phone(request.getParameter("phone"))
-				.address(request.getParameter("address"))
-				.hobby(request.getParameterValues("hobby")).build();
+		NoticeDto n = NoticeDto.builder()
+				.noticeTitle(request.getParameter("notice_title"))
+				.noticeWriter(request.getParameter("notice_wirter"))
+				.noticefilePath(request.getParameter("notice_filepath"))
+				.noticeContent(request.getParameter("notice_content")).build();
 		
-		int result = new MemberSerivce().updatemember(m);
+		int result = new NoticeService().updatenotice(n);
 		
 		String msg = "", loc="";
 		if(result > 0) {
-			msg = "회원정보가 수정되었습니다.";
+			msg = "공지사항이 수정되었습니다.";
 			loc="/";
 			HttpSession session = request.getSession();
-			session.setAttribute("loginMember", new MemberSerivce().duplicateid(m.getUserId()));
+			session.setAttribute("updatenotice", new NoticeService().selectnoticeview(n.getNoticeNo()));
 		}else {
-			msg = "회원정보 수정실패했습니다.다시 시도하세요";
+			msg = "공지사항 수정을 하지 못했습니다. 다시 시도하세요";
 //			
-			loc ="/member/selectmemberinfo.do?userId="+m.getUserId();
+			loc ="/notice/noticedetaileview.do?noticeNo="+n.getNoticeNo();
 		}
 		request.setAttribute("msg", msg);
 		request.setAttribute("loc", loc);
 		request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);
-	
-		}
+		
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

@@ -1,84 +1,84 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%@ include file="/views/common/header.jsp" %>    
 <section id=enroll-container>
-		<h2>È¸¿ø Á¤º¸ ¼öÁ¤</h2>
+		<h2>íšŒì› ì •ë³´ ìˆ˜ì •</h2>
 		<form id="memberFrm" method="post" action="<%=request.getContextPath()%>/member/memberUpdate.do">
 			<table>
 				<tr>
-					<th>¾ÆÀÌµð</th>
+					<th>ì•„ì´ë””</th>
 					<td>
 						<input type="text" name="userId" id="userId_" >
 					</td>
 				</tr>
 				<tr>
-					<th>ÆÐ½º¿öµå</th>
+					<th>íŒ¨ìŠ¤ì›Œë“œ</th>
 					<td>
 						<input type="password" name="password" id="password_">
 					</td>
 				</tr>
 				<tr>
-					<th>ÆÐ½º¿öµåÈ®ÀÎ</th>
+					<th>íŒ¨ìŠ¤ì›Œë“œí™•ì¸</th>
 					<td>	
 						<input type="password" id="password_2"><br>
 					</td>
 				</tr>  
 				<tr>
-					<th>ÀÌ¸§</th>
+					<th>ì´ë¦„</th>
 					<td>	
 					<input type="text"  name="userName" id="userName" required><br>
 					</td>
 				</tr>
 				<tr>
-					<th>³ªÀÌ</th>
+					<th>ë‚˜ì´</th>
 					<td>	
 					<input type="number" name="age" id="age"><br>
 					</td>
 				</tr> 
 				<tr>
-					<th>ÀÌ¸ÞÀÏ</th>
+					<th>ì´ë©”ì¼</th>
 					<td>	
 						<input type="email" placeholder="abc@xyz.com" name="email" id="email"><br>
 					</td>
 				</tr>
 				<tr>
-					<th>ÈÞ´ëÆù</th>
+					<th>íœ´ëŒ€í°</th>
 					<td>	
-						<input type="tel" placeholder="(-¾øÀÌ)01012345678" name="phone" id="phone" maxlength="11"><br>
+						<input type="tel" placeholder="(-ì—†ì´)01012345678" name="phone" id="phone" maxlength="11"><br>
 					</td>
 				</tr>
 				<tr>
-					<th>ÁÖ¼Ò</th>
+					<th>ì£¼ì†Œ</th>
 					<td>	
 						<input type="text" placeholder="" name="address" id="address" ><br>
 					</td>
 				</tr>
 				<tr>
-					<th>¼ºº° </th>
+					<th>ì„±ë³„ </th>
 					<td>
-						DBÁ¤º¸¿¡ µû¶ó ºÐ±âÃ³¸®ÇÒ°Í
+						DBì •ë³´ì— ë”°ë¼ ë¶„ê¸°ì²˜ë¦¬í• ê²ƒ
 							<input type="radio" name="gender" id="gender0" value="M" >
-							<label for="gender0">³²</label>
+							<label for="gender0">ë‚¨</label>
 							<input type="radio" name="gender" id="gender1" value="F">
-							<label for="gender1">¿©</label>
+							<label for="gender1">ì—¬</label>
 					</td>
 				</tr>
 				<tr>
-					<th>Ãë¹Ì </th>
+					<th>ì·¨ë¯¸ </th>
 					<td>
-						<input type="checkbox" name="hobby" id="hobby0" value="¿îµ¿" ><label for="hobby0">¿îµ¿</label>
-						<input type="checkbox" name="hobby" id="hobby1" value="µî»ê" ><label for="hobby1">µî»ê</label>
-						<input type="checkbox" name="hobby" id="hobby2" value="µ¶¼­" ><label for="hobby2">µ¶¼­</label><br />
-						<input type="checkbox" name="hobby" id="hobby3" value="°ÔÀÓ" ><label for="hobby3">°ÔÀÓ</label>
-						<input type="checkbox" name="hobby" id="hobby4" value="¿©Çà" ><label for="hobby4">¿©Çà</label><br />
+						<input type="checkbox" name="hobby" id="hobby0" value="ìš´ë™" ><label for="hobby0">ìš´ë™</label>
+						<input type="checkbox" name="hobby" id="hobby1" value="ë“±ì‚°" ><label for="hobby1">ë“±ì‚°</label>
+						<input type="checkbox" name="hobby" id="hobby2" value="ë…ì„œ" ><label for="hobby2">ë…ì„œ</label><br />
+						<input type="checkbox" name="hobby" id="hobby3" value="ê²Œìž„" ><label for="hobby3">ê²Œìž„</label>
+						<input type="checkbox" name="hobby" id="hobby4" value="ì—¬í–‰" ><label for="hobby4">ì—¬í–‰</label><br />
 						
 
 					</td>
 				</tr>
 			</table>
-			<input type="button" value="Á¤º¸¼öÁ¤"/>
-			<input type="button" value="Å»Åð"/>
+			<input type="button" value="ì •ë³´ìˆ˜ì •"/>
+			<input type="button" value="íƒˆí‡´"/>
 		</form>
 	</section>
 <%@ include file="/views/common/footer.jsp" %>

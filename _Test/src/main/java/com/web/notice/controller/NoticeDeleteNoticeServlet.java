@@ -1,30 +1,26 @@
-package com.web.member.controller;
+package com.web.notice.controller;
 
 import java.io.IOException;
-import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.websocket.Session;
 
-import com.web.member.model.dto.MemberDto;
-import com.web.member.model.service.MemberSerivce;
+import com.web.notice.service.NoticeService;
 
 /**
- * Servlet implementation class SelectMemberInfoServlet
+ * Servlet implementation class NoticeDeleteNoticeServlet
  */
-@WebServlet("/member/selectmemberinfo.do")
-public class SelectMemberInfoServlet extends HttpServlet {
+@WebServlet("/notice/deletenotice.do")
+public class NoticeDeleteNoticeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SelectMemberInfoServlet() {
+    public NoticeDeleteNoticeServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,9 +29,18 @@ public class SelectMemberInfoServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int number = Integer.parseInt(request.getParameter("number"));
 		
-		request.getRequestDispatcher("/views/member/memberInfo.jsp").forward(request, response);
+		int result = new NoticeService().deletenotice(number);
+		
+		String msg = "", loc = "";
+		if(result > 0) {
+			msg = "공지사항을 삭제하였습니다.";
 			
+		}else {
+			msg = "공지사항이 삭제되지 않았습니다. 다시 시도하세요";
+			loc ="/notice/noticedetaileview.do";
+		}
 		
 	}
 

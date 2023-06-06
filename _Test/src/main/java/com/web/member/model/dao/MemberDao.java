@@ -26,7 +26,7 @@ public class MemberDao {
 		}
 	}
 
-	private MemberDto getMember(ResultSet rs) throws SQLException {
+	public static MemberDto getMember(ResultSet rs) throws SQLException {
 		MemberDto m = new MemberDto();
 		m.setUserId(rs.getString("userid"));
 		m.setPassword(rs.getString("password"));
@@ -36,7 +36,7 @@ public class MemberDao {
 		m.setEmail(rs.getString("email"));
 		m.setPhone(rs.getString("phone"));
 		m.setAddress(rs.getString("address"));
-		m.setHobby(rs.getString("hobby").split(","));
+		m.setHobby(rs.getString("hobby")!= null? rs.getString("hobby").split(",") : null);
 		m.setEnrollDate(rs.getDate("enrolldate"));
 		return m;
 	}
@@ -140,23 +140,38 @@ public class MemberDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql.getProperty("updateMember"));
-			pstmt.setString(1, m.getUserId());
-			pstmt.setString(2, m.getPassword());
-			pstmt.setString(3, m.getUserName());
-			pstmt.setString(4, m.getGender());
-			pstmt.setInt(5, m.getAge());
-			pstmt.setString(6, m.getEmail());
-			pstmt.setString(7, m.getPhone());
-			pstmt.setString(8, m.getAddress());
-			pstmt.setString(9, m.getHobby());
+			pstmt.setString(1, m.getUserName());
+			pstmt.setInt(2, m.getAge());
+			pstmt.setString(3, String.valueOf(m.getGender()));
+			pstmt.setString(4, m.getEmail());
+			pstmt.setString(5, m.getPhone());
+			pstmt.setString(6, m.getAddress());
+			pstmt.setString(7, String.join(",",  m.getHobby()));
+			pstmt.setString(8, m.getUserId());
+		
+			result = pstmt.executeUpdate();
 
-			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
 			close(pstmt);
 		}return result;
 		
+	}
+	public int updatePassword(Connection conn, String userId, String password) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		try {
+			pstmt = conn.prepareStatement(sql.getProperty("updatepassword"));
+			pstmt.setString(1, password);
+			pstmt.setString(2, userId);
+			result = pstmt.executeUpdate();
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}return result;
 		
 	}
 	

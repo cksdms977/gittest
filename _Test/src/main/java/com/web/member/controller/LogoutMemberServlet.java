@@ -27,7 +27,7 @@ public class LogoutMemberServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession(false); // 거짓을 주는건 로그아웃하려면 session값을 null로 반환해줘야 하기때문에
+		HttpSession session = request.getSession(false);
 		if(session != null) session.invalidate();
 		
 		response.sendRedirect(request.getContextPath());

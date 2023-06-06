@@ -1,29 +1,26 @@
 package com.web.member.controller;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.web.member.model.dto.MemberDto;
 import com.web.member.model.service.MemberSerivce;
 
-
 /**
- * Servlet implementation class UpdateMemberServlet
+ * Servlet implementation class PasswordUpdateEndServlet
  */
-@WebServlet("/member/memberUpdate.do")
-public class UpdateMemberServlet extends HttpServlet {
+@WebServlet("/updatePasswordEnd.do")
+public class PasswordUpdateEndServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UpdateMemberServlet() {
+    public PasswordUpdateEndServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,34 +29,31 @@ public class UpdateMemberServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		MemberDto m = MemberDto.builder()
-				.userId(request.getParameter("userId"))
-				.userName(request.getParameter("userName"))
-				.age(Integer.parseInt(request.getParameter("age")))
-				.gender(request.getParameter("gender").charAt(0))
-				.email(request.getParameter("email"))
-				.phone(request.getParameter("phone"))
-				.address(request.getParameter("address"))
-				.hobby(request.getParameterValues("hobby")).build();
-		
-		int result = new MemberSerivce().updatemember(m);
-		
-		String msg = "", loc="";
-		if(result > 0) {
-			msg = "회원정보가 수정되었습니다.";
-			loc="/";
-			HttpSession session = request.getSession();
-			session.setAttribute("loginMember", new MemberSerivce().duplicateid(m.getUserId()));
+		String userId = request.getParameter("userId");
+		String oriPw = request.getParameter("password");
+		String newPw = request.getParameter("password_new");
+		MemberDto m = new MemberSerivce().login(userId, oriPw);
+		String msg = "", loc="/member/updatePasspword.do?uesrId="+userId;
+		if(m == null) {
+			// 비밀번호가 일치하지 않음
+			msg="비밀번호가 일치하지 않습니다.";
+					
 		}else {
-			msg = "회원정보 수정실패했습니다.다시 시도하세요";
-//			
-			loc ="/member/selectmemberinfo.do?userId="+m.getUserId();
+//			비밀번호가 일치함
+			int result = new MemberSerivce().updatePaswword(userId, newPw);
+			if(result > 0) {
+				msg = "비밀번호 수정완료!";
+				loc="/";
+				request.setAttribute("script", "opener.location.replace('"+request.getContextPath()+"/logout.do');close();");
+			}else {
+				msg = "비밀번호 수정실패!";
+			}
 		}
 		request.setAttribute("msg", msg);
 		request.setAttribute("loc", loc);
 		request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);
 	
-		}
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
     
 <%@ page import="com.web.member.model.dto.MemberDto" %>
 <%
@@ -14,13 +14,13 @@
 				break;
 		}
 	}
-}
-
-%>    
+}	
+%>
+   
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>header</title>
 <<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/style.css"/>
 <script src="<%=request.getContextPath()%>/js/jquery-3.7.0.min.js"></script>
@@ -35,22 +35,22 @@
 					<table>
 						<tr>
 							<td>
-								<input type="text" name="userId" id="userId" placeholder="¾ÆÀÌµð" value="<%=saveId != null ? saveId: ""%>">
+								<input type="text" name="userId" id="userId" placeholder="ì•„ì´ë””" value="<%=saveId != null ? saveId: ""%>">
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<input type="password" name="password" id="password" placeholder="ÆÐ½º¿öµå">
+								<input type="password" name="password" id="password" placeholder="íŒ¨ìŠ¤ì›Œë“œ">
 							</td>
 							<td>
-								<input type="submit" value="·Î±×ÀÎ">
+								<input type="submit" value="ë¡œê·¸ì¸">
 							</td>
 						</tr>
 						<tr>
 							<td>
 								<input type="checkbox" name="saveId" id="saveId" <%=saveId != null ? "checked" : "" %>>
-								<label for="saveId">¾ÆÀÌµðÀúÀå</label>
-								<input type="button" value="È¸¿ø°¡ÀÔ" onclick="location.assign('<%=request.getContextPath()%>/member/enrollMember.do')">
+								<label for="saveId">ì•„ì´ë””ì €ìž¥</label>
+								<input type="button" value="íšŒì›ê°€ìž…" onclick="location.assign('<%=request.getContextPath()%>/member/enrollMember.do')">
 							</td>
 						</tr>
 					</table>
@@ -59,15 +59,15 @@
 					<table id="logged-in">
 						<tr>
 							<td colspan="2">
-								<%=loginmember.getUserName()%>´Ô, È¯¿µÇÕ´Ï´Ù. :)
+								<%=loginmember.getUserName()%>ë‹˜, í™˜ì˜í•©ë‹ˆë‹¤. :)
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<input type="button" value="³» Á¤º¸º¸±â" onclick="location.assign('<%=request.getContextPath()%>/member/selectmemberinfo.do')">
+								<input type="button" value="ë‚´ ì •ë³´ë³´ê¸°" onclick="location.assign('<%=request.getContextPath()%>/member/selectmemberinfo.do?userId=<%=loginmember.getUserId()%>')">
 							</td>
 							<td>
-								<input type="button" value="·Î±×¾Æ¿ô" onclick="location.replace('<%=request.getContextPath()%>/logout.do')">
+								<input type="button" value="ë¡œê·¸ì•„ì›ƒ" onclick="location.replace('<%=request.getContextPath()%>/logout.do')">
 							</td>
 						</tr>
 					</table>
@@ -76,8 +76,11 @@
 			<nav>
 				<ul class="main-nav">
 					<li class="home"><a href="">Home</a></li>
-					<li id="notice"><a href="">°øÁö»çÇ×</a></li>
-					<li id="board"><a href="">°Ô½ÃÆÇ</a></li>
+					<li id="notice"><a href="<%=request.getContextPath()%>/admin/noticemainview.do">ê³µì§€ì‚¬í•­</a></li>
+					<li id="board"><a href="">ê²Œì‹œíŒ</a></li>
+					<%if(loginmember !=null && loginmember.getUserId().equals("admin")) {%>
+					<li id="member"><a href="<%=request.getContextPath()%>/admin/memberList.do">íšŒì›ê´€ë¦¬</a></li>
+					<%} %>
 				</ul>
 			</nav>
 		</header>

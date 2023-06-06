@@ -1,83 +1,83 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%@ include file="/views/common/header.jsp" %>
 <section id=enroll-container>
-        <h2>È¸¿ø °¡ÀÔ Á¤º¸ ÀÔ·Â</h2>
+        <h2>íšŒì› ê°€ì… ì •ë³´ ì…ë ¥</h2>
         <form action="<%=request.getContextPath()%>/member/enrollendmember.do" method="post" onsubmit="" >
         <table>
 			<tr>
-				<th>¾ÆÀÌµğ</th>
+				<th>ì•„ì´ë””</th>
 				<td>
-					<input type="text" placeholder="4±ÛÀÚÀÌ»ó" name="userId" id="userId_" >
-					<button type="button" name="idcheck" onclick="id_duplicate()" value="Áßº¹È®ÀÎ">Áßº¹È®ÀÎ</button>
+					<input type="text" placeholder="4ê¸€ìì´ìƒ" name="userId" id="userId_" >
+					<button type="button" name="idcheck" onclick="id_duplicate()" value="ì¤‘ë³µí™•ì¸">ì¤‘ë³µí™•ì¸</button>
 				</td>
 			</tr>
 			<tr>
-				<th>ÆĞ½º¿öµå</th>
+				<th>íŒ¨ìŠ¤ì›Œë“œ</th>
 				<td>
 					<input type="password" name="password" id="password_" class="pw"><br>
 				</td>
 			</tr>
 			<tr>
-				<th>ÆĞ½º¿öµåÈ®ÀÎ</th>
+				<th>íŒ¨ìŠ¤ì›Œë“œí™•ì¸</th>
 				<td>	
 					<input type="password" id="password_2" class="pw">
 					<font id="checkpwd" size="2"></font>
 				</td>
 			</tr>  
 			<tr>
-				<th>ÀÌ¸§</th>
+				<th>ì´ë¦„</th>
 				<td>	
 				<input type="text"  name="userName" id="userName" ><br>
 				</td>
 			</tr>
 			<tr>
-				<th>³ªÀÌ</th>
+				<th>ë‚˜ì´</th>
 				<td>	
 				<input type="number" name="age" id="age"><br>
 				</td>
 			</tr> 
 			<tr>
-				<th>ÀÌ¸ŞÀÏ</th>
+				<th>ì´ë©”ì¼</th>
 				<td>	
 					<input type="email" placeholder="abc@xyz.com" name="email" id="email"><br>
 				</td>
 			</tr>
 			<tr>
-				<th>ÈŞ´ëÆù</th>
+				<th>íœ´ëŒ€í°</th>
 				<td>	
-					<input type="tel" placeholder="(-¾øÀÌ)01012345678" name="phone" id="phone" maxlength="11" required><br>
+					<input type="tel" placeholder="(-ì—†ì´)01012345678" name="phone" id="phone" maxlength="11" required><br>
 				</td>
 			</tr>
 			<tr>
-				<th>ÁÖ¼Ò</th>
+				<th>ì£¼ì†Œ</th>
 				<td>	
 					<input type="text" placeholder="" name="address" id="address"><br>
 				</td>
 			</tr>
 			<tr>
-				<th>¼ºº° </th>
+				<th>ì„±ë³„ </th>
 				<td>
 					<input type="radio" name="gender" id="gender0" value="M">
-					<label for="gender0">³²</label>
+					<label for="gender0">ë‚¨</label>
 					<input type="radio" name="gender" id="gender1" value ="F">
-					<label for="gender1">¿©</label>
+					<label for="gender1">ì—¬</label>
 				</td>
 			</tr>
 			<tr>
-				<th>Ãë¹Ì </th>
+				<th>ì·¨ë¯¸ </th>
 				<td>
-					<input type="checkbox" name="hobby" id="hobby0" value="¿îµ¿"><label for="hobby0">¿îµ¿</label>
-					<input type="checkbox" name="hobby" id="hobby1" value="µî»ê"><label for="hobby1">µî»ê</label>
-					<input type="checkbox" name="hobby" id="hobby2" value="µ¶¼­"><label for="hobby2">µ¶¼­</label><br />
-					<input type="checkbox" name="hobby" id="hobby3" value="°ÔÀÓ"><label for="hobby3">°ÔÀÓ</label>
-					<input type="checkbox" name="hobby" id="hobby4" value="¿©Çà"><label for="hobby4">¿©Çà</label><br />
+					<input type="checkbox" name="hobby" id="hobby0" value="ìš´ë™"><label for="hobby0">ìš´ë™</label>
+					<input type="checkbox" name="hobby" id="hobby1" value="ë“±ì‚°"><label for="hobby1">ë“±ì‚°</label>
+					<input type="checkbox" name="hobby" id="hobby2" value="ë…ì„œ"><label for="hobby2">ë…ì„œ</label><br />
+					<input type="checkbox" name="hobby" id="hobby3" value="ê²Œì„"><label for="hobby3">ê²Œì„</label>
+					<input type="checkbox" name="hobby" id="hobby4" value="ì—¬í–‰"><label for="hobby4">ì—¬í–‰</label><br />
 				</td>
 			</tr>
 		</table>
-		<input type="submit" value="°¡ÀÔ" >
-		<input type="reset" value="Ãë¼Ò">
+		<input type="submit" value="ê°€ì…" >
+		<input type="reset" value="ì·¨ì†Œ">
         </form>
     </section>
     
@@ -88,7 +88,7 @@
 		open("<%=request.getContextPath()%>/member/idDuplicate.do?userId="+userId,"_blank", "width=300 height= 200");
 		
 		}else{
-			alert("4±ÛÀÚÀÌ»ó ÀÔ·ÂÇÏ¼¼¿ä!!")
+			alert("4ê¸€ìì´ìƒ ì…ë ¥í•˜ì„¸ìš”!!")
 		}
 		}
     $(".pw").keyup(function(){
@@ -96,10 +96,10 @@
 		const password2 = $("#password_2").val();
 		if(password != "" || password2 != ""){
 			if(password == password2) {
-				$("#checkpwd").html('ÀÏÄ¡');
+				$("#checkpwd").html('ì¼ì¹˜');
 				$("#checkpwd").attr("color", "green");
 			}else{
-				$("#checkpwd").html('ºÒÀÏÄ¡');
+				$("#checkpwd").html('ë¶ˆì¼ì¹˜');
 				$("#checkpwd").attr("color", "red");
 			}
 		}

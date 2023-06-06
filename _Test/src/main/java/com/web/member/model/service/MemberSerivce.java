@@ -37,4 +37,17 @@ public class MemberSerivce {
 		close(conn);
 		return list;
 	}
+	
+	public int updatemember(MemberDto updatemember) {
+		Connection conn = getConnection();
+		int m = dao.updateMember(conn, updatemember);
+		close(conn);
+		return m;
+	}
+	public int updatePaswword(String upserId, String password) {
+		Connection conn = getConnection();
+		int result = dao.updatePassword(conn, upserId, password);
+		close(conn);
+		return result;
+	}
 }	

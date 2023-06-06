@@ -1,4 +1,4 @@
-package com.web.common;
+package com.web.common.filter;
 
 import java.io.IOException;
 import javax.servlet.Filter;
@@ -17,6 +17,11 @@ import javax.servlet.http.HttpFilter;
 public class MemberFilter extends HttpFilter implements Filter {
        
     /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
      * @see HttpFilter#HttpFilter()
      */
     public MemberFilter() {

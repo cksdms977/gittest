@@ -1,30 +1,27 @@
-package com.web.member.controller;
+package com.web.notice.controller;
 
 import java.io.IOException;
-import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.websocket.Session;
 
-import com.web.member.model.dto.MemberDto;
-import com.web.member.model.service.MemberSerivce;
+import com.web.notice.dto.NoticeDto;
+import com.web.notice.service.NoticeService;
 
 /**
- * Servlet implementation class SelectMemberInfoServlet
+ * Servlet implementation class NoticeDetaileViewServlet
  */
-@WebServlet("/member/selectmemberinfo.do")
-public class SelectMemberInfoServlet extends HttpServlet {
+@WebServlet("/notice/noticedetaileview.do")
+public class NoticeDetaileViewServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SelectMemberInfoServlet() {
+    public NoticeDetaileViewServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,8 +31,15 @@ public class SelectMemberInfoServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.getRequestDispatcher("/views/member/memberInfo.jsp").forward(request, response);
-			
+		int number = Integer.parseInt(request.getParameter("NOTICE_NO"));
+		NoticeDto detailenotice = new NoticeService().selectnoticeview(number);
+		
+		if(detailenotice != null) {
+		HttpSession session = request.getSession();
+		session.setAttribute("detailenotice", detailenotice);
+		request.getRequestDispatcher("/views/notice/detailenoticeview.jsp").forward(request, response);
+		}
+		
 		
 	}
 

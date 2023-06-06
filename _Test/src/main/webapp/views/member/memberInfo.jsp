@@ -1,67 +1,114 @@
 <%@page import="org.apache.jasper.tagplugins.jstl.core.ForEach"%>
 <%@page import="java.util.List"%>
 <%@page import="com.web.member.model.dao.MemberDao"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ page import="com.web.member.model.dto.MemberDto" %>
+    
 <%
-String userId = (String)session.getAttribute("userId");
+	MemberDto infomember = (MemberDto)session.getAttribute("loginmember");
+	String[] checkData = new String[5];
+	if(infomember.getHobby() != null) {
+		for(String h : infomember.getHobby()){
+			switch(h){
+				case "ìš´ë™" : checkData[0] = "checked"; break;
+				case "ë“±ì‚°" : checkData[1] = "checked"; break;
+				case "ë…ì„œ" : checkData[2] = "checked"; break;
+				case "ê²Œì„" : checkData[3] = "checked"; break;
+				case "ì—¬í–‰" : checkData[4] = "checked"; break;
+		}
+	}
+}
+%>
 
-List<MemberDto> m = (List)request.getAttribute("selectMemberInfo");
-
-%>    
-    
-    
 <!DOCTYPE html>
 
 <%@ include file="/views/common/header.jsp" %>    
 <section id=enroll-container>
-        <h2>³» Á¤º¸º¸±â</h2>
-        <%if(m != null) {
-        for(MemberDto d : m) {%>
-        <form action="<%=request.getContextPath()%>/member/selectmemberinfo.do" method="post">
-        <table>
-			<tr>
-				<th>¾ÆÀÌµğ</th>
-				<td><%=d.getUserId()%></td>
-			</tr>
-			<tr>
-				<th>ÆĞ½º¿öµå</th>
-				<td><%=d.getPassword()%></td>
-			</tr>
-			<tr>
-				<th>ÀÌ¸§</th>
-				<td><%=d.getUserName()%></td>
-			</tr>
-			<tr>
-				<th>³ªÀÌ</th>
-				<td><%=d.getAge()%></td>
-			</tr> 
-			<tr>
-				<th>ÀÌ¸ŞÀÏ</th>
-				<td><%=d.getEmail()%></td>
-			</tr>
-			<tr>
-				<th>ÈŞ´ëÆù</th>
-				<td><%=d.getPhone()%></td>
-			</tr>
-			<tr>
-				<th>ÁÖ¼Ò</th>
-				<td><%=d.getAddress()%></td>
-			</tr>
-			<tr>
-				<th>¼ºº°</th>
-				<td><%=d.getGender()%></td>
-			</tr>
-			<tr>
-				<th>Ãë¹Ì</th>
-				<td><%=d.getHobby()%></td>
-			</tr>
-		</table>
-		<button type="button" name="updatemember" onclick="location." value="È¸¿øÁ¤º¸¼öÁ¤">È¸¿øÁ¤º¸¼öÁ¤</button>
-        </form>
-        <%}
-        }%>
-    </section>
-
+		<h2>íšŒì› ì •ë³´ ìˆ˜ì •</h2>
+		<form id="memberFrm" method="post" >
+			<table>
+				<tr>
+					<th>ì•„ì´ë””</th>
+					<td>
+						<input readonly="readonly" type="text" name="userId" id="userId_" value="<%=loginmember.getUserId()%>">
+					</td>
+				</tr>
+				<!-- <tr>
+					<th>íŒ¨ìŠ¤ì›Œë“œ</th>
+					<td>
+						<input type="password" name="password" id="password_">
+					</td>
+				</tr>
+				<tr>
+					<th>íŒ¨ìŠ¤ì›Œë“œí™•ì¸</th>
+					<td>	
+						<input type="password" id="password_2"><br>
+					</td>
+				</tr>   -->
+				<tr>
+					<th>ì´ë¦„</th>
+					<td>	
+					<input type="text"  name="userName" id="userName" value="<%=loginmember.getUserName()%>" required><br>
+					</td>
+				</tr>
+				<tr>
+					<th>ë‚˜ì´</th>
+					<td>	
+					<input type="number" name="age" id="age" value="<%=loginmember.getAge()%>" ><br>
+					</td>
+				</tr> 
+				<tr>
+					<th>ì´ë©”ì¼</th>
+					<td>	
+						<input type="email" placeholder="abc@xyz.com" name="email" id="email" value="<%=loginmember.getEmail()%>"><br>
+					</td>
+				</tr>
+				<tr>
+					<th>íœ´ëŒ€í°</th>
+					<td>	
+						<input type="tel" placeholder="(-ì—†ì´)01012345678" name="phone" id="phone" maxlength="11" value="<%=loginmember.getPhone()%>"><br>
+					</td>
+				</tr>
+				<tr>
+					<th>ì£¼ì†Œ</th>
+					<td>	
+						<input type="text" placeholder="" name="address" id="address" value="<%=loginmember.getAddress()%>" ><br>
+					</td>
+				</tr>
+				<tr>
+					<th>ì„±ë³„ </th>
+					<td>
+							<input type="radio" name="gender" id="gender0" value="M" <%=loginmember.getGender() == 'M' ? "checked":""%>>
+							<label for="gender0">ë‚¨</label>
+							<input type="radio" name="gender" id="gender1" value="F" <%=loginmember.getGender() == 'F' ? "checked":""%>>
+							<label for="gender1">ì—¬</label>
+					</td>
+				</tr>
+				<tr>
+					<th>ì·¨ë¯¸ </th>
+					<td>
+						<input type="checkbox" name="hobby" id="hobby0" value="ìš´ë™" <%=checkData[0]%>><label for="hobby0">ìš´ë™</label>
+						<input type="checkbox" name="hobby" id="hobby1" value="ë“±ì‚°" <%=checkData[1]%>><label for="hobby1">ë“±ì‚°</label>
+						<input type="checkbox" name="hobby" id="hobby2" value="ë…ì„œ" <%=checkData[2]%>><label for="hobby2">ë…ì„œ</label><br />
+						<input type="checkbox" name="hobby" id="hobby3" value="ê²Œì„" <%=checkData[3]%>><label for="hobby3">ê²Œì„</label>
+						<input type="checkbox" name="hobby" id="hobby4" value="ì—¬í–‰" <%=checkData[4]%>><label for="hobby4">ì—¬í–‰</label><br />
+						
+					</td>
+				</tr>
+			</table>
+			<input type="button" value="ë¹„ë°€ë²ˆí˜¸ìˆ˜ì •" onclick="fn_updatePssword();">
+			<input type="button" value="ì •ë³´ìˆ˜ì •" onclick="fn_updateMember();">
+			<input type="button" value="íƒˆí‡´">
+		</form>
+	</section>
+<script>
+	const fn_updateMember = () => {
+		$("#memberFrm").attr("action", "<%=request.getContextPath()%>/member/memberUpdate.do?userId=<%=loginmember.getUserId()%>").submit();
+	}
+	
+	const fn_updatePssword = ()=> {
+		open("<%=request.getContextPath()%>/member/updatePasspword.do?userId=<%=loginmember.getUserId()%>", "_blank", "width=400, height=210");
+	}
+</script>
 <%@ include file="/views/common/footer.jsp" %>

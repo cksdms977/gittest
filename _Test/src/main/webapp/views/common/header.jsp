@@ -22,7 +22,7 @@
 <head>
 <meta charset="UTF-8">
 <title>header</title>
-<<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/style.css"/>
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/style.css"/>
 <script src="<%=request.getContextPath()%>/js/jquery-3.7.0.min.js"></script>
 </head>
 <body>

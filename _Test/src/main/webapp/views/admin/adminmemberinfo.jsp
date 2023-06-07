@@ -3,7 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%
-	List<MemberDto> memberlist = (List)request.getAttribute("membermanagment");
+	List<MemberDto> memberlist = (List)request.getAttribute("memberList");
 	%>
     
 <!DOCTYPE html>
@@ -27,14 +27,12 @@
         <h2>회원관리</h2>
         
           <div id="search-container">
-        	<form action="<%=request.getContextPath()%>/admin/searchMember">
         	검색타입 : 	
         	<select id="searchType" name="selecttype">
         		<option value="userId" >아이디</option>
         		<option value="userName" >회원이름</option>
         		<option value="gender" >성별</option>
         	</select>
-        	</form>
         	<div id="search-userId">
         		<form action="<%=request.getContextPath()%>/admin/searchMember">
         			<input type="hidden" name="searchType" value="userId" >

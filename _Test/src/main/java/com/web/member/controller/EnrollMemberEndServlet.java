@@ -54,7 +54,7 @@ public class EnrollMemberEndServlet extends HttpServlet {
 		
 		String msg = "";
 		String loc = "";
-		if(enrollMember > 0) {
+		if(enrollMember > 0 ) {
 //			입력 성공에 대한로직
 			msg = "회원가입을 축하드립니다.!";
 			loc = "/";

@@ -53,9 +53,10 @@ public class LoginMemberBlockingAccess extends HttpFilter implements Filter {
 			request.setAttribute("loc", "/");
 			request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);
 //			throw new RuntimeException("잘못된 접근입니다.!!"); 원래 이렇게 에러페이지 등록해서 쓰면 됨
-		}else {
-		chain.doFilter(request, response);
+		return;
 		}
+		chain.doFilter(request, response);
+		
 	}
 
 	/**

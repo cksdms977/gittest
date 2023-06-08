@@ -44,11 +44,11 @@ public class AdminMemberInfoServlet extends HttpServlet {
 //		이 값을 매개변수로 던져준다.
 		
 //		1. DB에서 member테이블에 있는 데이터가져오기
-		List<MemberDto> memberlist = new AdminMemberService().membermanagement(cPage, numPerpage);
-		System.out.println(memberlist);
+		List<MemberDto> memberList = new AdminMemberService().membermanagement(cPage, numPerpage);
+		System.out.println(memberList);
 		
 //		2. DB에서 가져온 데이터저장 (화면출력)
-		request.setAttribute("membermanagment", memberlist);
+		request.setAttribute("memberList", memberList);
 //		- 페이지바 구성 여기서 페이지바를 만들어준다. 
 //		1) DB에 저장된 전체 데이터 수를 가져온다.
 		int totalData = new AdminMemberService().selectMemberCount();

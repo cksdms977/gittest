@@ -42,12 +42,14 @@ public class NoticeDao {
 				.build();
 	}
 	
-	public List<NoticeDto> Noticeinfo(Connection conn) {
+	public List<NoticeDto> Noticeinfo(Connection conn, int cPage, int numPerpage) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		List<NoticeDto> noticeinfo = new ArrayList<>();
 		try {
 			pstmt = conn.prepareStatement(sql.getProperty("noticeinfo"));
+			pstmt.setInt(1, (cPage-1) * numPerpage+1);
+			pstmt.setInt(2, cPage * numPerpage);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				noticeinfo.add(getNotice(rs));
@@ -58,6 +60,24 @@ public class NoticeDao {
 			close(rs);
 			close(pstmt);
 		}return noticeinfo;
+	}
+	
+	public int selectNoticeCount(Connection conn) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int result = 0;
+		try {
+			pstmt = conn.prepareStatement(sql.getProperty("selectNoticeCount"));
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				result = rs.getInt("RN");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}return result;
 	}
 	
 	public int insertNotice(Connection conn, NoticeDto n) {

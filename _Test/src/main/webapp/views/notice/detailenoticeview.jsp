@@ -4,7 +4,7 @@
 <%@page import="com.web.notice.dto.NoticeDto"%>
 <%@page import="java.util.List"%>
 <%
-	NoticeDto dto = (NoticeDto)session.getAttribute("NOTICE_NO");
+	NoticeDto dto = (NoticeDto)request.getAttribute("detailenotice");
 %>    
 <!DOCTYPE html>
 <%@ include file="/views/common/header.jsp" %>  
@@ -27,12 +27,14 @@
             <th>내 용</th>
             <td><input type="text" name="notice_content" value="<%=dto.getNoticeContent() %>"></td>
         </tr>
+        <%if(loginmember != null && loginmember.getUserId().equals("admin") || loginmember.getUserId().equals(dto.getNoticeWriter())) {%>
         <tr>
             <th colspan="2">
                 <input type="button" value="수정하기" onclick="location.assign('<%=request.getContextPath()%>/notice/updatenotice.do')">
-                <input type="button" value="삭제하기" onclick="location.assign('<%=request.getContextPath()%>/notice/deletenotice.do')">
+                <input type="button" value="삭제하기" onclick="location.assign('<%=request.getContextPath()%>/notice/deletenotice.do?NOTICE_NO=<%=dto.getNoticeNo()%>')">
             </th>
         </tr>
+        <%} %>
     </table>
     </div>
      <style>

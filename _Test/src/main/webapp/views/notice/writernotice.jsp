@@ -3,8 +3,9 @@
 <!DOCTYPE html>
 
 <%@ include file="/views/common/header.jsp" %> 
-<div id="notice-container">
-    <form action="<%=request.getContextPath()%>/notice/noticewriterend.do" method="post">
+<section id="notice-container">
+<h1>공지사항작성</h1> <!-- 첨부파일을 넘기려고 한다면 무조건 enctype을 multipart/form-data타입으로 설정해주어야 한다. -->
+    <form action="<%=request.getContextPath()%>/notice/noticewriterend.do" method="post" enctype="multipart/form-data">
         <table id="tbl-notice">
         <tr>
             <th>제 목</th>
@@ -16,11 +17,11 @@
         </tr>
         <tr>
             <th>첨부파일</th>
-            <td><input type="text" name="notice_filepath" id="notice_" value="첨부파일" ></td>
+            <td><input type="file" name="notice_filepath" id="notice_" value="첨부파일" ></td>
         </tr>
         <tr>
             <th>내 용</th>
-            <td><input type="text" name="notice_content" id="notice_" value="내용" ></td>
+            <td><textarea cols="42" rows="5" name="notice_content" id="notice_"></textarea></td>
         </tr>
         <tr>
             <th colspan="2">
@@ -29,7 +30,7 @@
         </tr>
     </table>
     </form>
-    </div>
+    </section>
 
     <style>
     section#notice-container{width:600px; margin:0 auto; text-align:center;}

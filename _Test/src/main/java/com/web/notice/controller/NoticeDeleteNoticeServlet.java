@@ -29,18 +29,21 @@ public class NoticeDeleteNoticeServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int number = Integer.parseInt(request.getParameter("number"));
+		int number = Integer.parseInt(request.getParameter("NOTICE_NO"));
 		
 		int result = new NoticeService().deletenotice(number);
 		
 		String msg = "", loc = "";
 		if(result > 0) {
 			msg = "공지사항을 삭제하였습니다.";
-			
+			loc = "/admin/noticemainview.do";
 		}else {
 			msg = "공지사항이 삭제되지 않았습니다. 다시 시도하세요";
 			loc ="/notice/noticedetaileview.do";
 		}
+		request.setAttribute("msg", msg);
+		request.setAttribute("loc", loc);
+		request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);
 		
 	}
 

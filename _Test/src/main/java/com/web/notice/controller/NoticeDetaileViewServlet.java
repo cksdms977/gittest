@@ -34,11 +34,9 @@ public class NoticeDetaileViewServlet extends HttpServlet {
 		int number = Integer.parseInt(request.getParameter("NOTICE_NO"));
 		NoticeDto detailenotice = new NoticeService().selectnoticeview(number);
 		
-		if(detailenotice != null) {
-		HttpSession session = request.getSession();
-		session.setAttribute("detailenotice", detailenotice);
+		request.setAttribute("detailenotice", detailenotice);
 		request.getRequestDispatcher("/views/notice/detailenoticeview.jsp").forward(request, response);
-		}
+	
 		
 		
 	}

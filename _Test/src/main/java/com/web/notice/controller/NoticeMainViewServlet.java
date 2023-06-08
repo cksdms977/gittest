@@ -32,7 +32,48 @@ public class NoticeMainViewServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		List<NoticeDto> noticeinfo = new NoticeService().Noticeinfo();
+		int cPage, numPerpage;
+		try {
+			cPage = Integer.parseInt(request.getParameter("cPage"));
+		}catch(NumberFormatException e){
+			cPage = 1;
+		}
+		try {
+			numPerpage = Integer.parseInt(request.getParameter("numPerpage"));
+		}catch(NumberFormatException e){
+			numPerpage = 5;
+		}
+		
+		String pageBar = "";
+		int totalData = new NoticeService().selectNoticeCount();
+		int totalPage = (int)Math.ceil((double)totalData/numPerpage);
+		int pageBarSize = 5;
+		int pageNo = ((cPage - 1)/pageBarSize) * pageBarSize + 1;
+		int pageEnd = pageNo + pageBarSize - 1;
+		
+		if(pageNo == 1) {
+			pageBar += "<span>[이전]</span>";
+		}else {
+			pageBar +="<a href ='"+request.getRequestURI()+"?cPage="+(pageNo-1)+"'>[이전]</a>";
+		}
+		
+		while(!(pageNo > pageEnd || pageNo > totalPage)) {
+			if(pageNo == cPage) {
+				pageBar +="<span>" + pageNo + "</span>";
+			}else {
+				pageBar +="<a href ='"+request.getRequestURI()+"?cPage="+ pageNo +"&numPerPage="+numPerpage+"'>"+pageNo+"</a>";
+			}
+			pageNo++;
+		}
+		
+		if(pageNo > totalPage) {
+			pageBar += "<span>[다음]</span>";
+		}else {
+			pageBar +="<a href ='"+request.getRequestURI()+"?cPage="+ pageNo +"&numPerPage="+numPerpage+"'>[다음]</a>";
+		}
+		request.setAttribute("pageBar", pageBar);
+		
+		List<NoticeDto> noticeinfo = new NoticeService().Noticeinfo(cPage, numPerpage);
 		System.out.println(noticeinfo);
 		request.setAttribute("noticeinfo", noticeinfo);
 		request.getRequestDispatcher("/views/notice/mainnotice.jsp").forward(request, response);

@@ -16,7 +16,7 @@ import com.web.member.model.service.MemberSerivce;
 /**
  * Servlet implementation class LoginMemberServlet
  */
-@WebServlet("/login.do")
+@WebServlet(name="login",urlPatterns = "/login.do")
 public class LoginMemberServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

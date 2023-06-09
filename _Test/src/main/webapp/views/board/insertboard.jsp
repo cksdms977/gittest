@@ -1,7 +1,10 @@
+<%@page import="com.web.board.dto.BoardDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-    
+<%
+	BoardDto b = (BoardDto)request.getAttribute("selectboard");
+%>
     
 <%@ include file="/views/common/header.jsp" %>    
 <style>
@@ -43,7 +46,7 @@
 
 	<div id='board-container'>
 		<h2>게시판 작성</h2>
-		<form action="/board/boardinsertend.do">
+		<form action="<%=request.getContextPath()%>/board/boardinsertend.do" method="post" enctype="multipart/form-data">
 			<table id='tbl-board'>
 				<tr>
 					<th>제목</th>
@@ -51,11 +54,11 @@
 				</tr>
 				<tr>
 					<th>작성자</th>
-					<td><input type="text" name="board_writer" id="board_" value="제목"></td>
+					<td><input type="text" name="board_writer" id="board_" value="작성자"></td>
 				</tr>
 				<tr>
 					<th>첨부파일</th>
-					<td><input type="file" name="board_file" id="board_" value="제목"></td>
+					<td><input type="file" name="board_file" id="board_" value="첨부파일"></td>
 				</tr>
 				<tr>
 					<th>내용</th>

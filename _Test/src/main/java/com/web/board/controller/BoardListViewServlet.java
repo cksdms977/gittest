@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.web.board.dto.BoardDto;
 import com.web.board.service.BoardService;
+import com.web.notice.service.NoticeService;
 
 /**
  * Servlet implementation class BoardListViewServlet
@@ -32,23 +33,47 @@ public class BoardListViewServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-//		int cPage, numPerpage;
-//		try {
-//			cPage = Integer.parseInt(request.getParameter("cPage"));
-//		}catch(NumberFormatException e){
-//			cPage = 1;
-//		}
-//		try {
-//			numPerpage = Integer.parseInt(request.getParameter("numPerpage"));
-//		}catch(NumberFormatException e){
-//			numPerpage = 10;
-//		}
-//		
-//		String pageBar = "";
-//		int totalData = new NoticeService().
-//		
-		List<BoardDto> boardList = new BoardService().BoardList();
-		System.out.println(boardList);
+		int cPage, numPerpage;
+		try {
+			cPage = Integer.parseInt(request.getParameter("cPage"));
+		}catch(NumberFormatException e){
+			cPage = 1;
+		}
+		try {
+			numPerpage = Integer.parseInt(request.getParameter("numPerpage"));
+		}catch(NumberFormatException e){
+			numPerpage = 5;
+		}
+		
+		String pageBar = "";
+		int totalData = new BoardService().selectBoardCount();
+		int totalPage = (int)Math.ceil((double)totalData/numPerpage);
+		int pageBarSize = 5;
+		int pageNo = ((cPage - 1)/pageBarSize) * pageBarSize + 1;
+		int pageEnd = pageNo + pageBarSize - 1;
+		
+		if(pageNo == 1) {
+			pageBar += "<span>[이전]</span>";
+		}else {
+			pageBar +="<a href='"+request.getRequestURI()+"?cPage="+(pageNo-1)+"&numPerpage="+numPerpage+"'>[이전]</a>";
+		}
+		while(!(pageNo > pageEnd || pageNo > totalPage)) {
+			if(pageNo == cPage) {
+				pageBar += "<span>" + pageNo + "</span>";
+			}else {
+				pageBar += "<a href='"+request.getRequestURI()+"?cPage=" + pageNo + "&numPerPage="+numPerpage+"'>" + pageNo + "</a>";
+			}
+			pageNo ++;
+		}
+		
+		if(pageNo > totalPage) {
+			pageBar += "<span>[다음]</span>";
+		}else {
+			pageBar += "<a href='"+request.getRequestURI()+"?cPage=" + pageNo + "&numPerPage="+numPerpage+"'>[다음]</a>";
+		}
+		request.setAttribute("pageBar", pageBar);
+		
+		List<BoardDto> boardList = new BoardService().BoardList(cPage, numPerpage);
 		
 		request.setAttribute("boardList", boardList);
 		request.getRequestDispatcher("/views/board/boardlist.jsp").forward(request, response);

@@ -1,6 +1,7 @@
 package com.web.board.dao;
 
-import java.io.Closeable;
+import static com.web.common.JDBCTemplate.close;
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
@@ -11,9 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-import org.apache.catalina.filters.RestCsrfPreventionFilter;
-
-import static com.web.common.JDBCTemplate.*;
 import com.web.board.dto.BoardDto;
 
 import oracle.jdbc.proxy.annotation.Pre;
@@ -40,16 +38,17 @@ public class BoardDao {
 				.boardReadcount(rs.getInt("board_readcount")).build();
 	}
 	
-	public List<BoardDto> BoardList(Connection conn) {
+	public List<BoardDto> BoardList(Connection conn, int cPage, int numPerpage) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		List<BoardDto> boardList = new ArrayList<>();
 		
 		try {
 			pstmt = conn.prepareStatement(sql.getProperty("BoardList"));
-//			pstmt.setInt(1, (cPage-1) * numPerpage+1);
-//			pstmt.setInt(2, cPage * numPerpage);
+			pstmt.setInt(1, (cPage-1) * numPerpage+1);
+			pstmt.setInt(2, cPage * numPerpage);
 			rs = pstmt.executeQuery();
+			
 			while(rs.next()) {
 				boardList.add(getBoard(rs));
 			}
@@ -61,7 +60,23 @@ public class BoardDao {
 		}return boardList;
 	}
 	
-	
+	public int selectBoardCount(Connection conn) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int result = 0;
+		try {
+			pstmt = conn.prepareStatement(sql.getProperty("selectBoardCount"));
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				result = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}return result;
+	}
 	
 	public BoardDto selectboardview(Connection conn, int number) {
 		PreparedStatement pstmt = null;
@@ -82,6 +97,22 @@ public class BoardDao {
 		}return b;
 		
 	}
+	public int updateBoardReadCount(Connection conn, int number) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		try {
+			pstmt = conn.prepareStatement(sql.getProperty("updateBoardReadCount"));
+			pstmt.setInt(1, number);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}return result;
+		
+	}
+	
+	
 	
 	public int insertboard(Connection conn, BoardDto b) {
 		PreparedStatement pstmt = null;
@@ -131,6 +162,56 @@ public class BoardDao {
 		}finally {
 			close(pstmt);
 		}return result;
+	}
+	
+	public int insertboardComment(Connection conn, BoardComment bc) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		try {
+			pstmt = conn.prepareStatement(sql.getProperty("insertboardComment"));
+			pstmt.setInt(1, bc.getLevel());
+			pstmt.setString(2, bc.getBoardCommentWriter());
+			pstmt.setString(3, bc.getBoardCommentContent());
+			pstmt.setInt(4, bc.getBoardRef());
+			pstmt.setString(5, bc.getBoardCommentRef() == 0 ? null : String.valueOf(bc.getBoardCommentRef()));
+			
+			result = pstmt.executeUpdate();
+		}catch(SQLException e){
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}return result;
+	}
+	
+	public List<BoardComment> selectBoardComment(Connection conn, int number) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<BoardComment> list = new ArrayList<>();
+		
+		try {
+			pstmt = conn.prepareStatement(sql.getProperty("selectBoardComment"));
+			pstmt.setInt(1, number);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				list.add(getBoardComment(rs));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstmt);
+		}return list;
+	}
+	private BoardComment getBoardComment(ResultSet rs) throws SQLException {
+		return BoardComment.builder()
+				.boardCommentNo(rs.getInt("board_comment_no"))
+				.level(rs.getInt("board_comment_level"))
+				.boardCommentWriter(rs.getString("board_comment_writer"))
+				.boardCommentContent(rs.getString("board_comment_content"))
+				.boardCommentDate(rs.getDate("board_comment_date"))
+				.boardCommentRef(rs.getInt("board_comment_ref"))
+				.boardRef(rs.getInt("board_ref"))
+				.build();
 	}
 	
 }

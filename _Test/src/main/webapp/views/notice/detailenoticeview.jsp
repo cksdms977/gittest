@@ -21,7 +21,13 @@
         </tr>
         <tr>
             <th>첨부파일</th>
-            <td><input type="text" name="notice_filepath" value="<%=dto.getNoticefilePath() != null ? dto.getNoticefilePath() : "" %>"></td>
+            <td>													<!-- 함수에다가도 이렇게 서버에 요청하는 값을 넣어줄수 있다. -->
+            <div class="dowonload-container" onclick="fileDownload('<%=dto.getNoticefilePath()%>');">
+            <%if(dto.getNoticefilePath() != null) { %>
+            <img src="<%=request.getContextPath()%>/imges/file.png" width="20"><span><%=dto.getNoticefilePath() %></span>
+           	<%} %>
+           	</div> 
+            </td>
         </tr>
         <tr>
             <th>내 용</th>
@@ -30,14 +36,20 @@
         <%if(loginmember != null && loginmember.getUserId().equals("admin") || loginmember.getUserId().equals(dto.getNoticeWriter())) {%>
         <tr>
             <th colspan="2">
-                <input type="button" value="수정하기" onclick="location.assign('<%=request.getContextPath()%>/notice/updatenotice.do')">
+                <input type="button" value="수정하기" onclick="location.assign('<%=request.getContextPath()%>/notice/updatenotice.do?NOTICE_NO=<%=dto.getNoticeNo()%>')">
                 <input type="button" value="삭제하기" onclick="location.assign('<%=request.getContextPath()%>/notice/deletenotice.do?NOTICE_NO=<%=dto.getNoticeNo()%>')">
             </th>
         </tr>
         <%} %>
     </table>
+    <script>
+    	const fileDownload = (filename) =>{
+			location.assign("<%=request.getContextPath()%>/fileDownload.do?name="+filename);
+    	}
+    </script>
     </div>
      <style>
+    div.dowonload-container{cursor:pointer;}
     section#notice-container{width:600px; margin:0 auto; text-align:center;}
     section#notice-container h2{margin:10px 0;}
     table#tbl-notice{width:500px; margin:0 auto; border:1px solid black; border-collapse:collapse; clear:both; }

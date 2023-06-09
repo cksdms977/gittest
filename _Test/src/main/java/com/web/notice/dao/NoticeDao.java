@@ -118,7 +118,7 @@ public class NoticeDao {
 		}return n;
 		
 	}
-	public int updatenotice(Connection conn, NoticeDto n) {
+	public int updatenotice(Connection conn, NoticeDto n, int number) {
 		PreparedStatement pstmt = null;
 		int result = 0;
 		try {
@@ -127,6 +127,7 @@ public class NoticeDao {
 			pstmt.setString(2, n.getNoticeWriter());
 			pstmt.setString(3, n.getNoticeContent());
 			pstmt.setString(4, n.getNoticefilePath() != null ? n.getNoticefilePath() : null);
+			
 			
 			result = pstmt.executeUpdate();
 		}catch (SQLException e) {

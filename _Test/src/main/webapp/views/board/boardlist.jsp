@@ -23,7 +23,9 @@
 </style>
 	<section id="board-container">
 		<h2>게시판 </h2>
+		<%-- <%if(loginmember != null && loginmember.getUserId().equals(<%=%>){%>  --%>
 		<input type="button" id="boardwirter_btn" value="게시판작성하기" onclick="location.assign('<%=request.getContextPath()%>/board/boardwriter.do')">
+		<%-- <%} %> --%>
 		<table id="tbl-board">
 			<tr>
 				<th>번호</th>
@@ -46,7 +48,9 @@
 				<td><%=b.getBoardWriter()%></td>
 				<td><%=b.getBoardDate()%></td>
 				<td>
-					<%=b.getBoardRenamed() != null ? b.getBoardRenamed():""%>
+					<%if(b.getBoardRenamed() != null) {%>
+						<img src="<%=request.getContextPath()%>/imges/file.png">
+					<%} %>
 				</td>
 				<td><%=b.getBoardReadcount()%></td>
 			</tr>
@@ -54,7 +58,10 @@
 			} %>
 			</tbody>
 		</table>
-
-		페이징처리
+		
+		<div id="pageBar">
+        	<%=request.getAttribute("pageBar")%>
+        </div>
+		
 	</section>
 <%@ include file="/views/common/footer.jsp" %>

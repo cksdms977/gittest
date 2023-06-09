@@ -54,14 +54,14 @@ public class NoticeMainViewServlet extends HttpServlet {
 		if(pageNo == 1) {
 			pageBar += "<span>[이전]</span>";
 		}else {
-			pageBar +="<a href ='"+request.getRequestURI()+"?cPage="+(pageNo-1)+"'>[이전]</a>";
+			pageBar +="<a href ='"+request.getRequestURI()+"?cPage="+(pageNo-1)+"&numPerpage="+numPerpage+"'>[이전]</a>";
 		}
 		
 		while(!(pageNo > pageEnd || pageNo > totalPage)) {
 			if(pageNo == cPage) {
 				pageBar +="<span>" + pageNo + "</span>";
 			}else {
-				pageBar +="<a href ='"+request.getRequestURI()+"?cPage="+ pageNo +"&numPerPage="+numPerpage+"'>"+pageNo+"</a>";
+				pageBar +="<a href ='"+request.getRequestURI()+"?cPage="+ pageNo +"&numPerPage="+numPerpage+"'>" + pageNo + "</a>";
 			}
 			pageNo++;
 		}
@@ -74,7 +74,7 @@ public class NoticeMainViewServlet extends HttpServlet {
 		request.setAttribute("pageBar", pageBar);
 		
 		List<NoticeDto> noticeinfo = new NoticeService().Noticeinfo(cPage, numPerpage);
-		System.out.println(noticeinfo);
+		
 		request.setAttribute("noticeinfo", noticeinfo);
 		request.getRequestDispatcher("/views/notice/mainnotice.jsp").forward(request, response);
 	}

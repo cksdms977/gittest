@@ -49,7 +49,8 @@ public class BoardinsertEndServlet extends HttpServlet {
 		
 		String boardtitle = mr.getParameter("board_title");
 		String boardwriter = mr.getParameter("board_writer");
-		String boardfile = mr.getParameter("board_file");
+//		String boardfile = mr.getParameter("board_file");
+		String boardfile = mr.getFilesystemName("board_file");
 		String boardcontent = mr.getParameter("board_content");
 		
 		BoardDto b = BoardDto.builder()

@@ -1,0 +1,169 @@
+
+
+
+
+
+
+
+
+    
+
+
+   
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>header</title>
+<link rel="stylesheet" type="text/css" href="/_Test/css/style.css"/>
+<script src="/_Test/js/jquery-3.7.0.min.js"></script>
+</head>
+<body>
+	<div id="container">
+		<header>
+			<h1>HelloMVC</h1>
+			<div class="login-container">
+			
+				<form id="loginFrm" action="/_Test/login.do" method="post">
+					<table>
+						<tr>
+							<td>
+								<input type="text" name="userId" id="userId" placeholder="아이디" value="">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input type="password" name="password" id="password" placeholder="패스워드">
+							</td>
+							<td>
+								<input type="submit" value="로그인">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input type="checkbox" name="saveId" id="saveId" >
+								<label for="saveId">아이디저장</label>
+								<input type="button" value="회원가입" onclick="location.assign('/_Test/member/enrollMember.do')">
+							</td>
+						</tr>
+					</table>
+				</form>
+				
+			</div>
+			<nav>
+				<ul class="main-nav">
+					<li class="home"><a href="">Home</a></li>
+					<li id="notice"><a href="/_Test/admin/noticemainview.do">공지사항</a></li>
+					<li id="board"><a href="/_Test/board/boardList.do">게시판</a></li>
+					
+				</ul>
+			</nav>
+		</header>
+    
+<style>
+	section#board-container{width:600px; margin:0 auto; text-align:center;}
+	section#board-container h2{margin:10px 0;}
+	table#tbl-board{width:100%; margin:0 auto; border:1px solid black; border-collapse:collapse; clear:both; }
+	table#tbl-board th, table#tbl-board td {border:1px solid; padding: 5px 0; text-align:center;} 
+	/*글쓰기버튼*/
+	input#btn-add{float:right; margin: 0 0 15px;}
+	/*페이지바*/
+	div#pageBar{margin-top:10px; text-align:center; background-color:rgba(0, 188, 212, 0.3);}
+	div#pageBar span.cPage{color: #0066ff;}
+	#boardwirter_btn{float: right; margin-bottom: 5px;}
+</style>
+	<section id="board-container">
+		<h2>게시판 </h2>
+		<input type="button" id="boardwirter_btn" value="게시판작성하기" onclick="location.assign('/_Test/board/boardwriter.do')">
+		<table id="tbl-board">
+			<tr>
+				<th>번호</th>
+				<th>제목</th>
+				<th>작성자</th>
+				<th>작성일</th>
+				<th>첨부파일</th>
+				<th>조회수</th>
+			</tr>
+			<tbody>
+			
+			<tr>
+				<td>22</td>
+				<td>
+					<a href="/_Test/board/selectboardview.do?BOARD_NO=22">안녕하세요, 게시판입니다 - 21</a>
+				</td>
+				<td>uvwx</td>
+				<td>2018-04-01</td>
+				<td>
+					
+				</td>
+				<td>0</td>
+			</tr>
+			
+			<tr>
+				<td>21</td>
+				<td>
+					<a href="/_Test/board/selectboardview.do?BOARD_NO=21">안녕하세요, 게시판입니다 - 20</a>
+				</td>
+				<td>tuvw</td>
+				<td>2018-03-20</td>
+				<td>
+					
+				</td>
+				<td>0</td>
+			</tr>
+			
+			<tr>
+				<td>20</td>
+				<td>
+					<a href="/_Test/board/selectboardview.do?BOARD_NO=20">안녕하세요, 게시판입니다 - 19</a>
+				</td>
+				<td>stuv</td>
+				<td>2018-03-19</td>
+				<td>
+					
+				</td>
+				<td>0</td>
+			</tr>
+			
+			<tr>
+				<td>19</td>
+				<td>
+					<a href="/_Test/board/selectboardview.do?BOARD_NO=19">안녕하세요, 게시판입니다 - 18</a>
+				</td>
+				<td>rstu</td>
+				<td>2018-03-18</td>
+				<td>
+					
+				</td>
+				<td>0</td>
+			</tr>
+			
+			<tr>
+				<td>18</td>
+				<td>
+					<a href="/_Test/board/selectboardview.do?BOARD_NO=18">안녕하세요, 게시판입니다 - 17</a>
+				</td>
+				<td>qrst</td>
+				<td>2018-03-17</td>
+				<td>
+					
+				</td>
+				<td>0</td>
+			</tr>
+			
+			</tbody>
+		</table>
+		
+		<div id="pageBar">
+        	<span>[이전]</span><a href='/_Test/board/boardList.do?cPage=1&numPerPage=5'>[다음]</a>
+        </div>
+		
+	</section>
+
+		
+		<footer>
+			<p>&lt;Copyright 2023. <strong>BScompany</strong>.
+			All right Reserved.&gt;
+		</footer>
+</body>
+</html>

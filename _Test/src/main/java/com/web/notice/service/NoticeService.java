@@ -42,9 +42,9 @@ public class NoticeService {
 		return n;
 	}
 	
-	public int updatenotice(NoticeDto n) {
+	public int updatenotice(NoticeDto n, int number) {
 		Connection conn = getConnection();
-		int result = dao.updatenotice(conn, n);
+		int result = dao.updatenotice(conn, n, number);
 		close(conn);
 		return result;
 	}

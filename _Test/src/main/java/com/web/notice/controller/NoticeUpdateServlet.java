@@ -36,8 +36,9 @@ public class NoticeUpdateServlet extends HttpServlet {
 				.noticeWriter(request.getParameter("notice_wirter"))
 				.noticefilePath(request.getParameter("notice_filepath"))
 				.noticeContent(request.getParameter("notice_content")).build();
+		int number = Integer.getInteger(request.getParameter("NOTICE_NO"));
 		
-		int result = new NoticeService().updatenotice(n);
+		int result = new NoticeService().updatenotice(n, number);
 		
 		String msg = "", loc="";
 		if(result > 0) {

@@ -36,7 +36,7 @@ public class CsvDataServlet extends HttpServlet {
 				Actor.builder().name("멧데이먼").phone("01012231432").profile("mattDamon.jpg").build());
 			
 		String csv = "";
-		for(int i =0; i < actors.size(); i++) {
+		for(int i = 0; i < actors.size(); i++) {
 			if(i != 0) csv += "\n";
 			csv += actors.get(i);
 		}

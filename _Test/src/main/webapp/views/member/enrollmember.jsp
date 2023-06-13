@@ -108,6 +108,39 @@
 			}
 		}
 	}); 
+    $("#userId_").keyup(e=>{
+    	if(e.target.value.length >= 4) {
+    	$.ajax({
+    		url: "<%=request.getContextPath()%>/ajaxDuplicateId.do",
+    		data: {"userId": $(e.target).val()},
+    		success: function(data){
+    			console.log(data, typeof data);
+    			let msg="", css="";
+    			if(data=='true'){
+    				msg="사용가능한 아이디입니다.";
+    				css={color:"green"};
+    			}else{
+    				msg="사용 불가능한 아이디입니다.";
+    				css={color:"red"}
+    			}
+    			const tr = $("<tr>");
+    			const td = $("<td colspan='2'>").text(msg).css(css);
+    			tr.append(td)
+    			if($(e.target).parents("tr").next().find("input").length==0){
+    				$(e.target).parents("tr").next().remove();
+    			}
+    			$(e.target).parents("tr").after(tr);
+    		}, error: function(r,m){
+    			console.log(r);
+    			console.log(m);
+    		}
+    	});
+      }else{
+    	  if($(e.target).parents("tr").next().find("input").length==0){
+				$(e.target).parents("tr").next().remove();
+    	  }
+      }
+    });
     
     
     

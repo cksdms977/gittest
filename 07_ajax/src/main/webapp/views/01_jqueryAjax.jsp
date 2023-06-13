@@ -172,5 +172,107 @@
 			})
 		</script>
 		
+		<h2>html페이지를 받아서 처리하기</h2>
+		<button id="btnhtml">html페이지 받아오기</button>
+		<div id="htmlcontainer"></div>
+		
+		<script>
+			$("#btnhtml").click(function(e) {
+				$.ajax({
+					url: "<%=request.getContextPath()%>/ajax/htmltest.do",
+					dataType: "html",
+					success: function(data){
+						console.log(data);
+						$("#htmlcontainer").html(data);
+					}
+				})
+			})
+		</script>
+		
+		<h2>xml파일을 가져와 처리하기</h2>
+		<button id="xmlbtn">xml파일가져오기</button>
+		<div id="xmlcontainer"></div>
+		<script>
+			$("#xmlbtn").click(e=>{
+				$.get("<%=request.getContextPath()%>/test/books.xml", function(data){
+						/* console.log(data); */
+ 						/* console.log($(data)); */
+						const root = $(data).find(":root");
+						console.log(root)
+						const books = root.children();
+						console.log(books);
+						const table = $("<table>");
+						const header = "<tr><th>구분</th><th>제목</th><th>작가</th></tr>";
+						table.html(header);
+						books.each(function(i,e){
+							/* console.log(e); */
+							const tr = $("<tr>");
+							/* $(e).find("submit").text() */
+							const subject = $("<td>").text($(e).find("submit").text());
+							const title = $("<td>").text($(e).find("title").text());
+							const wirter = $("<td>").text($(e).find("wirter").text());
+							tr.append(subject).append(title).append(wirter);
+							table.append(tr);
+						});
+						$("#xmlcontainer").html(table); // html로 하는 이유는 append로 하면 계속 추가됨 자식객체로 들어가야하기때문에
+					}
+			   	)
+			})
+		</script>
+		
+		<h2>서버에서 보낸 데이터 활용하기</h2>
+		<input type="search" id="userId" list="data"><button id="searchMember">아이디검색</button>
+		<datalist id="data"></datalist>
+		
+		<div id="memberList"></div>
+		
+		<script>
+			$("#userId").keyup(e=>{
+				$.get("<%=request.getContextPath()%>/serarchId.do?id="+$(e.target).val(),function(data){
+ 					/* console.log(data); */
+ 					$("data").html('');
+ 					const userIds = data.split(",");
+ 					console.log(userIds);
+ 					userIds.forEach(e=>{
+ 						const option = $("<option>").attr("value", e).text(e);
+ 						$("#data").append(option);
+ 					})
+				
+				})
+			})
+			$("#searchMember").click(e=>{
+				$.ajax({
+					url: "<%=request.getContextPath()%>/useridmemberinfo.do?userid="+$(e.target).val(),
+					dataType: "text",
+					success: data =>{
+						/* console.log(data); */
+						const members = data.split("\n");
+						const table = $("<table>");
+						const header = $("<tr>");
+						const headerdata = ["아아디", "이름", "나이", "성별", "이메일", "전화번호", "주소", "취미", "가입일"];
+						headerdata.forEach(e=>{
+							const th =$("<th>").text(e);
+							header.append(th);
+						});
+						table.append(header);
+						/* console.log(members); */
+						members.forEach(e=>{
+							const member = e.split("$");
+							const tr = $("<tr>");
+							/* console.log(member); */
+							member.forEach(m=>{
+								tr.append($("<td>").text(m));
+							});
+							table.append(tr);
+						});
+						/* $("#memberList").html(data); */
+						$("#memberList").html(table);
+					}
+				});
+			});
+			
+			const object=[dsf:"Asdf"]
+			
+		</script>
 </body>
 </html>

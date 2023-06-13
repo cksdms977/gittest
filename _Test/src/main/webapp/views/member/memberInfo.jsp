@@ -17,7 +17,7 @@
 				case "게임" : checkData[3] = "checked"; break;
 				case "여행" : checkData[4] = "checked"; break;
 		}
-	}
+	}   
 }
 %>
 

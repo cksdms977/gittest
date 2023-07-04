@@ -28,7 +28,7 @@ public class Member {
 	
 	@Override
 	public String toString() {
-		return userId+"$"+userName+"$"+age+"$"+gender+"$"+email+"$"+email+"$"+phone+"$"+address+"$"+Arrays.toString(hobby)+"$"+new SimpleDateFormat("yyyy-mm-dd").format(enrollDate);
+		return userId+"$"+userName+"$"+age+"$"+gender+"$"+email+"$"+email+"$"+phone+"$"+address+"$"+Arrays.toString(hobby)+"$"+new SimpleDateFormat("yyyy-MM-dd").format(enrollDate);
 	}
 }
 

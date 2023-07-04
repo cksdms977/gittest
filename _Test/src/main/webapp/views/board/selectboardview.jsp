@@ -1,4 +1,4 @@
-<%@page import="com.web.board.dao.BoardComment"%>
+<%@page import="com.web.board.model.dao.BoardComment"%>
 <%@page import="java.util.List"%>
 <%@page import="com.web.board.dto.BoardDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"

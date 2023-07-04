@@ -17,11 +17,11 @@
 		<li>jacksone.jar -> ObjectMapper클래스를 이용 * Spring에서 기본사용</li>
 	</ul>
 	<button id="jsonBtn">jsonSimple</button>
-	<button id="gsonBtn">jsonSimple</button>
+	<button id="gsonBtn">gsonBtn</button>
 	<button id="jsonparse">test</button>
 	<script>
 		$("#jsonparse").click(e=>{
-			fetch("<%=request.getContextPath()%>/gsontest.do",
+			$.get("<%=request.getContextPath()%>/gsontest.do",
 					{method: "post",
 					 body: {"data":JSON.stringify({"userId": "bsyoo", 
 						 	"password":"1234", 
@@ -34,10 +34,26 @@
 					});
 		})
 		$("#gsonBtn").click(e=>{
-			$.get("<%=request.getContextPath()%>/gsontest.do",
+			<%-- $.get("<%=request.getContextPath()%>/gsontest.do",
 					data=>{
 						console.log(data);
-					});
+					}); gson은 url처리를 못해줌 post방식으로 처리해야함 --%>
+					
+					$.post("<%=request.getContextPath()%>/gsontest.do",
+							{data:JSON.stringify({
+								userId:"bsyoo",
+								password:"1234",
+								userName:"유병승",
+								gender:"M",
+								age:19,
+								eamil:"afe@adf.com",
+								phone:"123",
+								address:"경기도시흥시",
+								enrollDate:'20230614'
+							})},
+							data=>{
+								console.log(data);
+							})
 		})
 	
 	

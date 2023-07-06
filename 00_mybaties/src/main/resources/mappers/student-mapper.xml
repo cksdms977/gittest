@@ -70,6 +70,19 @@
   <select id="selectStudentAll" resultMap="studentMap">
   	SELECT * FROM STUDENT
   </select>
+  <select id="selectStudentByName" resultMap="studentMap" parameterType="string">
+  	SELECT * FROM STUDENT WHERE STUDENT_NAME LIKE '%'||#{name}||'%'
+  </select>
   
+  <select id="selectStudentMap" resultType="map" parameterType="_int"> 
+  	SELECT * FROM STUDENT WHERE STUDENT_NO=#{no} 
+  </select>
   
+  <select id="selectStudentListMap" resultType="map">
+  	SELECT * FROM STUDENT 
+  </select>
+  <select id="selectStudentPage" resultMap="studentMap">
+  <!-- 	SELECT * FROM (SELECT ROWNUM AS RNUM, S.* FROM ()) 이렇게 할필요가 없음 -->
+  	SELECT * FROM STUDENT
+  </select>
 </mapper>

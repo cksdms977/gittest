@@ -55,5 +55,19 @@
 		<a href="${path }/student/selectStudentAll.do">전체학생조회</a>
 	</h4>
 	
+	<h3>이름으로 조회하기</h3>
+	<form action="${path }/student/selectStudentByName.do">
+		<input name="name" type="text">
+		<input type="submit" value="검색">
+	</form>
+	
+	<h3>vo를 생성하지 않고 데이터 가져오기</h3>
+	<p>Map을 이용해서 데이터를 가져올수 있다.</p>
+	<h4><a href="${path }/student/selectStudentMap?no=1">1번학생조회</a></h4>
+	
+	<h4><a href="${path }/student/select/selectStudentListMap">전체학생조회</a></h4>
+
+	<h3>마이바티스 페이징처리</h3>
+	<h4><a href="${path }/student/studentPage.do">페이징처리하기</a></h4>
 </body>
 </html>

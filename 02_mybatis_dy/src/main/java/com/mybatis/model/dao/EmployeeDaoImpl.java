@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
+import com.mybatis.model.vo.Department;
 import com.mybatis.model.vo.Employee;
 
 public class EmployeeDaoImpl implements EmpDao {
@@ -17,5 +18,9 @@ public class EmployeeDaoImpl implements EmpDao {
 	@Override
 	public List<Employee> searchEmp(SqlSession session, Map<String, Object> param) {
 		return session.selectList("employee.searchEmp", param);
+	}
+	@Override
+	public List<Department> selectAllDept(SqlSession session){
+		return session.selectList("employee.selectAllDept");
 	}
 }

@@ -21,4 +21,13 @@ public class SessionTemplate {
 		}
 		return session;
 	}
+	public static SqlSession getWebSession() {
+		String file = "mybatis-config.xml";
+		SqlSession session = null;
+		try(InputStream is = Resources.getResourceAsStream(file)) {
+			session = new SqlSessionFactoryBuilder().build(is, "WEB").openSession(false);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}return session;
+	}
 }

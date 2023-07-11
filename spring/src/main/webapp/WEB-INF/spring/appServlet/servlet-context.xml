@@ -35,9 +35,47 @@
 	 <!-- Animal클래스를 default생성자로 생성해서 bean으로 등록 -->
 	<!-- <beans:bean id="bbo" class="com.bs.spring.bintest.Animal"/> -->
 	<!-- pojo생성시 setter를 이용해서 데이터를 넣어서 생성시키기 -->
-	<beans:bean id="bbo" class="com.bs.spring.bintest.Animal">
+	<!-- <beans:bean id="bbo" class="com.bs.spring.bintest.Animal">
 		<beans:property name="name" value="뽀숑"/>
 		<beans:property name="age" value="3"/>
 		<beans:property name="height" value="50.4"/>
+	</beans:bean> -->
+	<!-- 매개변수에 있는 생성자를 이용해서 생성시키기 -->
+	<beans:bean id="bbo" class="com.bs.spring.bintest.Animal">
+		<beans:constructor-arg index="0" value="뽀숑"/>
+		<beans:constructor-arg index="1" value="3"/>
+		<beans:constructor-arg index="2" value="50.4"/> <!-- 만약 2개만 매개변수로 받는 생성자가 없을시 갯수를 맞춰줘야함(그래서 만약에 2개만 하고 싶으면 DTO에서 매개변수를 2개만 받는 생성자를 만들어 준다.) -->
+		<!-- 나중에 gson이나 json들을 bean으로 등록해서 사용하면 된다. -->
 	</beans:bean>
+	<beans:bean id="dog" class="com.bs.spring.bintest.Animal">
+		<beans:property name="name" value="뽀삐"/>
+	</beans:bean>
+	
+	<!-- init-method, destroy-method 속성을 사용했을때 객체가 생성하고 소멸할때 자동으로 메소드 클래스를 생성하도록 설정할수 있다.  -->
+	<beans:bean id="emp" class="com.bs.spring.bintest.Employee" init-method="initialMethod" destroy-method="destroyMethod">
+		<beans:property name="name" value="최주영"/>
+		<beans:property name="age" value="24"/>
+		<beans:property name="address" value="경기도 안양시"/>
+		<beans:property name="salary" value="100"/>
+		<beans:property name="dept" ref="dept"/>
+	</beans:bean>
+	<beans:bean id="emp2" class="com.bs.spring.bintest.Employee">
+		<beans:constructor-arg index="0" ref="dept"/>
+	</beans:bean>
+	<beans:bean id="dept" class="com.bs.spring.bintest.Department">
+		<beans:constructor-arg index="0" value="1"/>
+		<beans:constructor-arg index="1" value="개발부"/>
+		<beans:constructor-arg index="2" value="판교"/>
+	</beans:bean>
+	<!-- 등록하는 bean이 다른클래스와 연관관계(참조)가 설정되어있을 때는 
+		다른 bean을 등록해야한다.
+		ref속성을 이용해서 설정한다.
+	-->
+	<!--  	<beans:bean id="memberSerivce" Dao나 service 메소드를 각각 집어넣어서 만들수 있다.
+	class="com.bs.spring.member.model.service.MemberServiceImpl">
+		<beans:constructor-arg index="0" ref="sessionTemplate"/>
+		<beans:constructor-arg index="1" ref="memberDao"/>
+	</beans:bean>  -->
+	
+	<!-- <beans:import resource=""/> 다른곳에서 설정된 xml파일을 불러올때 이렇게 사용 -->
 </beans:beans>

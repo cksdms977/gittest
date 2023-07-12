@@ -31,7 +31,9 @@
 		<tr>
 			<th>개발가능언어</th>
 			<td>
-				${demo.devLang }
+			<c:forEach var="l" items="${demo.devLang }">
+				${l }
+			</c:forEach>
 			</td>
 		</tr>
 	</table>

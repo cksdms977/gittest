@@ -57,9 +57,87 @@
 				</div>
 			</div>
 			<div class="form-group row">
+				<label for="brithDay" class="col-sm-2 col-form-label">생년월일</label>
+					<div class="col-sm-10">
+						<input type="date" class="form-control" id="birthDay" name="birthDay">
+					</div>
+			</div>
+			
+			<div class="form-group row">
 				<div class="col-sm-12">
 					<button type="button" class="col-sm-12 btn btn-outline-primary" onclick="requestSend('demo/demo1.do')">
 						spring 메소드 서블릿처럼이용하기
+					</button>
+				</div>
+			</div>
+			
+			<div class="form-group row">
+				<div class="col-sm-12">
+					<button type="button" class="col-sm-12 btn btn-outline-primary" onclick="requestSend('demo/demo2.do')">
+						1:1로 매칭해서 데이터를 받기
+					</button>
+				</div>
+			</div>
+			<div class="form-group row">
+				<div class="col-sm-12">
+					<button type="button" class="col-sm-12 btn btn-outline-primary" onclick="requestSend('demo/demo3.do')">
+						@RequestParam 매칭해서 데이터를 받기
+					</button>
+				</div>
+			</div>
+			<div class="form-group row">
+				<div class="col-sm-12">
+					<button type="button" class="col-sm-12 btn btn-outline-primary" onclick="requestSend('demo/demo4.do')">
+						Vo(command)를 이용해서 데이터를 받기
+					</button>
+				</div>
+			</div>
+			<div class="form-group row">
+				<div class="col-sm-12">
+					<button type="button" class="col-sm-12 btn btn-outline-primary" onclick="requestSend('demo/demo5.do')">
+						Map을 이용해서 데이터를 받기
+					</button>
+				</div>
+			</div>
+			<div class="form-group row">
+				<div class="col-sm-12">
+					<button type="button" class="col-sm-12 btn btn-outline-primary" onclick="requestSend('demo/demo6.do')">
+						추가데이터 확인하기
+					</button>
+				</div>
+			</div>
+			<div class="form-group row">
+				<div class="col-sm-12">
+					<button type="button" class="col-sm-12 btn btn-outline-primary" onclick="requestSend('demo/demo7.do')">
+						ModelAndView 이용하기
+					</button>
+				</div>
+			</div>
+			<div class="form-group row">
+				<div class="col-sm-12">
+					<button type="button" class="col-sm-12 btn btn-outline-primary" onclick="requestSend('demo/demo8.do')">
+						@ResponseBody 이용하기
+					</button>
+				</div>
+			</div>
+			<div class="form-group row">
+				<div class="col-sm-12">
+					<button type="button" class="col-sm-12 btn btn-outline-primary" onclick="requestSend('demo/demo9.do')">
+						방식에 따라 요청처리하기
+					</button>
+				</div>
+			</div>
+			<div class="form-group row">
+				<div class="col-sm-12">
+					<button type="button" class="col-sm-12 btn btn-outline-primary" onclick="insertDemo();">
+						저장하기
+					</button>
+				</div>
+			</div>
+			<div class="form-group row">
+				<div class="col-sm-12">
+					<button type="button" class="col-sm-12 btn btn-outline-primary" onclick="selectAllDemo();">
+						리스트로 가져오기
 					</button>
 				</div>
 			</div>
@@ -70,6 +148,15 @@
 	const requestSend=(url)=>{
 		$("#devFrm").attr("action","${path}/"+url);
 		$("#devFrm").submit();
+	}
+	const insertDemo = () => {
+		$("#devFrm").attr("action","${path}/demo/insertDemo.do");
+		$("#devFrm").submit();
+	}
+	const selectAllDemo = () => {
+		$("#devFrm").attr("action", "${path}/demo/selectAllDemo.do");
+		$("#devFrm").submit();
+		
 	}
 </script>
 <style>

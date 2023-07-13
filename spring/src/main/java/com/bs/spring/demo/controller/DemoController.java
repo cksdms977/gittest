@@ -9,6 +9,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,6 +34,7 @@ public class DemoController {
 	@Autowired
 	private DemoService service;
 	
+	private Logger logger = LoggerFactory.getLogger(DemoController.class);
 	
 	@RequestMapping("/demo/demo.do")
 	public String demo() {
@@ -73,16 +76,20 @@ public class DemoController {
 	// 서블릿방식으로 매핑메소드 이용하기
 	@RequestMapping("/demo/demo1.do")
 	public void demo1(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException{
-		System.out.println(req);
-		System.out.println(res);
+		logger.debug("request : {}", req);
+		logger.debug("respoonse : {}", res);
+//		System.out.println(req);
+//		System.out.println(res);
 		String devName = req.getParameter("devName");
 		int devAge = Integer.parseInt(req.getParameter("devAge"));
 		String devGender = req.getParameter("devGedner");
 		String devEmail =req.getParameter("devEmail");
 		String [] devLang = req.getParameterValues("devLang");
-		System.out.println(devName + " " + devAge + " " + devGender + " " + devEmail);
+		logger.debug(devName + " " + devAge + " " + devGender + " " + devEmail);
+//		System.out.println(devName + " " + devAge + " " + devGender + " " + devEmail);
 		for(String l : devLang) {
-			System.out.println(l);
+//			System.out.println(l);
+			logger.debug(l);
 		}
 //		res.setContentType("text/html;charset=utf-8");
 //		PrintWriter out = res.getWriter();
@@ -97,7 +104,8 @@ public class DemoController {
 	//(대신 매개변수 데이터 값이 고정으로 무조건 넘어온다고 할때 이방법을 사용하면 됨(그리고 매개변수 객체와 키값이랑 명칭이 똑같이 맞춰줘야함). 즉 프론트화면에서 데이터값을 무조건 받도록 만들어 줘야함)
 	@RequestMapping("/demo/demo2.do")
 	public String demo2(String devName, int devAge, String devGender, String devEmail, String[] devLang, Model model) { //double weight,) {
-		System.out.println(devName + " " + devAge + " " + devGender + " " + devEmail + "" + Arrays.toString(devLang));
+//		System.out.println(devName + " " + devAge + " " + devGender + " " + devEmail + "" + Arrays.toString(devLang));
+		logger.debug(devName + " " + devAge + " " + devGender + " " + devEmail + "" + Arrays.toString(devLang));
 		// 페이지에 생성한 데이터를 전송하려면.... request, session, servletcontext
 		// Spring에서 데이터전송하는 객체를 제공함. -> Model
 		// Model에 데이터를 저장하기 -> model.addAttribute("key", value); 저장함.
@@ -225,14 +233,14 @@ public class DemoController {
 		System.out.println("리스트" + " " + demos);
 		return "demo/demolist";
 	}
-	@RequestMapping("/demo/updateDemo.do")
-	public String updateDemo(Demo demo, Model model) {
-		int result = service.updateDemo(demo);
-		
-		System.out.println(result);
-		return "demo";
-		
-	}
+//	@RequestMapping("/demo/updateDemo.do")
+//	public String updateDemo(Demo demo, Model model) {
+//		int result = service.updateDemo(demo);
+//		
+//		System.out.println(result);
+//		return "demo";
+//		
+//	}
 	
 	
 	

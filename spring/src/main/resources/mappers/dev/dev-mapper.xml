@@ -14,5 +14,8 @@
  <select id="seelctDemoAll" resultMap="demoMap">
  	SELECT * FROM DEV
  </select>
+ <select id="updateDemo" resultMap="demoMap" parameterType="_int">
+ 	SELECT * FRMO DEV WHERE DEVNO = #{no}
+ </select>
  
 </mapper>

@@ -17,7 +17,6 @@ public class StringArrayTypeHander implements TypeHandler<String[]> {
 		}else {
 			ps.setString(i, "");
 		}
-		
 	}
 	@Override
 	public String[] getResult(ResultSet rs, String columnName) throws SQLException {

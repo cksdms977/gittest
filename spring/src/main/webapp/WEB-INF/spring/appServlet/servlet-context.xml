@@ -78,4 +78,26 @@
 	</beans:bean>  -->
 	
 	<!-- <beans:import resource=""/> 다른곳에서 설정된 xml파일을 불러올때 이렇게 사용 -->
+	
+	<!-- 인터셉터 등록하기 -->
+	<interceptors>
+		<interceptor>
+			<mapping path="/demo/*"/>
+			<!-- <exclude-mapping path="/demo/demo.do"/> --> <!-- 여기서 이 주소는 인터셉터에서 빼줘라 라는 설정 -->
+			<beans:bean class="com.bs.spring.common.interceptor.LoggerInterceptor"/>
+		</interceptor>
+		<!--  <interceptor>
+			<mapping path="/demo/selectAllDemo.do"/>
+			<mapping path="/memo/*"/>
+			<beans:ref bean="loginCheck"/>
+		</interceptor>
+		<interceptor>
+			<mapping path="/memo/insertmemo.do"/>
+			<beans:ref bean="memoCheck"/>
+		</interceptor> -->
+		
+	</interceptors>
+	
+	<beans:bean id="loginCheck" class="com.bs.spring.common.interceptor.LoginCheckInterceptor"/>
+	<beans:bean id="memoCheck" class="com.bs.spring.common.interceptor.AdminCheckInterceptor"/>
 </beans:beans>

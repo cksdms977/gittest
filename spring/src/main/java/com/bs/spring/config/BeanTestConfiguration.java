@@ -11,12 +11,14 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.FilterType;
 import org.springframework.core.annotation.Order;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import com.bs.spring.bintest.Animal;
 import com.bs.spring.bintest.Department;
 import com.bs.spring.bintest.Employee;
 
 @Configuration // 무조건 contiguration 안에서 해야함
+@EnableWebMvc 
 @ComponentScan(basePackages = "com.bs.spring",
 			  includeFilters = {@ComponentScan.Filter(type = FilterType.REGEX, pattern = {"com.bs.spring.include.*"})}, //어노테이션표시가 없더라도 해당이되면 bean으로 등록함
 			  excludeFilters = {} // 등록된것을 제외시키는 것

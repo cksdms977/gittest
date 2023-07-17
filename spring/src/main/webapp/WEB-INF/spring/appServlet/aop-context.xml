@@ -6,14 +6,17 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 
 <!-- xml방식으로 aop적용하기 -->
-<bean id="loggerAspect" class="com.bs.spring.common.aop.LoggerAspect"/>
+<!-- <bean id="loggerAspect" class="com.bs.spring.common.aop.LoggerAspect"/>
 <aop:config>
 	<aop:aspect ref="loggerAspect">
-		<aop:pointcut expression="execution(* com.bs.spring.memo..*(..))" id="logPointcut"/> <!-- ..은 그 아래 모든 클래스뜻 -->
+		<aop:pointcut expression="execution(* com.bs.spring.memo..select*(..))" id="logPointcut"/> ..은 그 아래 모든 클래스뜻
 		<aop:before method="loggerBefore" pointcut-ref="logPointcut"/>
 		<aop:after method="loggerAfter" pointcut-ref="logPointcut"/>
 	</aop:aspect>
-</aop:config>
+</aop:config> -->
+
+<!-- annotation방식으로 AOP적용하기 -->
+<aop:aspectj-autoproxy/>
 
 
 </beans>

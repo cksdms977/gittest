@@ -7,17 +7,23 @@
 </jsp:include>    
  <div id="board-container">
         <input type="text" class="form-control" placeholder="Á¦¸ñ" name="boardTitle" id="boardTitle" value="${board.boardTitle }"  required>
-        <input type="text" class="form-control" name="boardWriter" value="${board.boardWriter }" readonly required>
-
+        <input type="text" class="form-control" name="boardWriter" value="${board.boardWriter.userId }" readonly required>
+		<c:if test="${not empty board.file}">
+		<c:forEach var="f" items="${board.file }">
                     <button type="button" 
                     class="btn btn-outline-success btn-block"
-                    onclick="">
+                    onclick="fn_fileDownload('${f.originalFilename}', '${f.renamedFilename }')">
+                    ${f.originalFilename }
             </button>
-        
-        
+        	</c:forEach>
+        </c:if>
         <textarea class="form-control" name="boardContent" placeholder="${board.boardContent }" required></textarea>
     </div>
-
+<script type="text/javascript">
+	function fn_fileDownload(oriName, reName){
+		location.assign("${path}/board/filedownload?oriname="+oriName+"&rename="+reName);
+	}
+</script>
      <style>
     div#board-container{width:400px; margin:0 auto; text-align:center;}
     div#board-container input,div#board-container button{margin-bottom:15px;}

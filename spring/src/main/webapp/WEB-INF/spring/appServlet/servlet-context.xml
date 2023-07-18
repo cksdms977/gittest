@@ -100,4 +100,14 @@
 	
 	<beans:bean id="loginCheck" class="com.bs.spring.common.interceptor.LoginCheckInterceptor"/>
 	<beans:bean id="memoCheck" class="com.bs.spring.common.interceptor.AdminCheckInterceptor"/>
+	
+	<!-- 
+		파일업로드를 처리할 resolver를 등록하자
+		CommonsMultipartResolver 클래스를 빈으로 등록
+	 -->
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="maxUploadSize" value="104857600" />
+	</beans:bean>
+	
+	
 </beans:beans>

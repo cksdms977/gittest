@@ -228,6 +228,24 @@
     <version>6.2.5.Final</version>
 </dependency>
 
+<!--
+	파일업로드를 위한 라이브러리 등록
+	mutipartresolver를 이용할수 있음
+	common-io -> 2.7
+	commons-fileupload ->
+-->
+<dependency>
+    <groupId>commons-io</groupId>
+    <artifactId>commons-io</artifactId>
+    <version>2.7</version>
+</dependency>
+
+<dependency>
+    <groupId>commons-fileupload</groupId>
+    <artifactId>commons-fileupload</artifactId>
+    <version>1.4</version>
+</dependency>
+
 
 	</dependencies>
     <build>

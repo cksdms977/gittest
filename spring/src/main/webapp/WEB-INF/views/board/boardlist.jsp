@@ -8,7 +8,7 @@
 
 <section id="board-container" class="container">
         <p>총 ${totalData }건의 게시물이 있습니다.</p>
-        
+        <button class="btn btn-outline-primary" onclick="location.assign('${path}/board/boardform.do')">글쓰기</button>
         <table id="tbl-board" class="table table-striped table-hover">
             <tr>
                 <th>번호</th>
@@ -24,9 +24,14 @@
 					<tr>
 						<td>${b.boardNo }</td>
 						<td><a href="${path }/board/selectboard.do?no=${b.boardNo}">${b.boardTitle }</a></td>
-						<td>${b.boardWriter }</td>
-						<td>${b.boardContent }</td>
+						<td>${b.boardWriter.userId }</td>
 						<td>${b.boardDate }</td>
+						<td>
+							<c:if test="${not empty b.file && b.file.get(0).attachmentNo!=0 }">
+								<img src="${path }/resources/images/file.png" alt="첨부파일사진">
+								<span>${b.file.size() }</span>
+							</c:if>
+						</td>
 						<td>${b.boardReadCount }</td>
 					</tr>
 				</c:forEach>           

@@ -21,6 +21,12 @@ public class MemberDaoImpl implements MemberDao {
 		return session.selectOne("member.selectById", param);
 	}
 
+	@Override
+	public List<Member> memberlist(SqlSessionTemplate session) {
+		return session.selectList("member.memberlist");
+	}
+	
+
 //	@Override
 //	public List<Member> mypage(SqlSessionTemplate session, String userId) {
 //		return session.selectList("member.mypage", userId);

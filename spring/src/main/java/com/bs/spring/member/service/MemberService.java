@@ -8,5 +8,6 @@ import com.bs.spring.member.model.dto.Member;
 public interface MemberService {
 	int insertMember(Member m);
 	Member selectMemberById(Map<String, Object> param);
+	List<Member> memberlist();
 //	List<Member> mypage(String userId);
 }

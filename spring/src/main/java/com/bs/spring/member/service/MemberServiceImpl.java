@@ -27,6 +27,10 @@ public class MemberServiceImpl implements MemberService {
 		return dao.selectMemberById(session, param);
 	}
 
+	@Override
+	public List<Member> memberlist() {
+		return dao.memberlist(session);
+	}
 //	@Override
 //	public List<Member> mypage(String userId) {
 //		return dao.mypage(session, userId);

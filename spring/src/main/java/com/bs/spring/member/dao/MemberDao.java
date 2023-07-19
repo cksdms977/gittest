@@ -10,5 +10,6 @@ import com.bs.spring.member.model.dto.Member;
 public interface MemberDao {
 	int insertMember(SqlSessionTemplate session, Member m);
 	Member selectMemberById(SqlSessionTemplate session, Map<String, Object> param);
+	List<Member> memberlist(SqlSessionTemplate session);
 //	List<Member> mypage(SqlSessionTemplate session, String userId);
 }

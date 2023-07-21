@@ -16,6 +16,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import com.bs.spring.bintest.Animal;
 import com.bs.spring.bintest.Department;
 import com.bs.spring.bintest.Employee;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Configuration // 무조건 contiguration 안에서 해야함
 @EnableWebMvc 
@@ -59,4 +60,14 @@ public class BeanTestConfiguration {
 	/* gson객체를 계속 생성하지 않고 이렇게 클래스를 선언하면 내부에서 사용이 가능하다.		
 	 * @Bean public Gson gsion() { return new Gson(); }
 	 */
+	
+	@Bean
+	public ObjectMapper objectMapper() {
+		return new ObjectMapper();
+	}
+	
+	
+	
+	
+	
 }

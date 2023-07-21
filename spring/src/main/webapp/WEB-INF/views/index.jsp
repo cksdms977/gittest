@@ -19,6 +19,7 @@
 	<script>
 	
 	const insertData=()=>{
+		const data={userId:"test1",password:"test",userName:"테스트",age:19,gender:"M"};
 		/* $.post("${pageContext.request.contextPath}/ajax/insertData.do",
 				{userId:"test1",password:"test",userName:"테스트",age:19,gender:"M"},
 					data=>{
@@ -34,7 +35,37 @@
 				}
 			});			 */		
 			
-			//fetch함수를 제공함.
+			//fetch함수를 제공함. -> 다른 라이브러리가 필요없다.
+			//fetch("URL주소", {요청에 대한 옵션})
+			//.then(response => response.json()) // 응답내용파싱, 에러처리를 확인 할수 있음
+			//.then(data=>{처리로직})// 여기부분이 success함수 부분이라고 보변됨
+			 /* fetch("${pageContext.request.contextPath}/ajax/memberlist.do"
+				//method:"get",
+				//headers:{}
+				//body:JSON.stringify(객체)
+				//ok는 응답을 확인할수 있음
+			).then(response=>{
+				cosole.log(response)
+				if(!response.ok) throw new Error("요청실패!");return response.json()}
+			).then(data=>{
+					console.log(data)
+				}
+			).catch(e=>{
+				alert(e);
+			});  */
+			
+			 fetch("${pageContext.request.contextPath}/ajax/insertData.do",{
+				method:"post",
+				headers:{
+					"Content-type":"application/json"
+				},body:JSON.stringify(data)
+			}).then(response=>{
+				if(!response.ok) new Error("입력실패"); return response.json() // 서버가 json으로 응답했을때
+				//일반문자를 반환했을때 response.text()
+				}).then(data=>{console.log(data);
+			}).catch(e=>{
+				
+			}); 
 			
 			
 	}

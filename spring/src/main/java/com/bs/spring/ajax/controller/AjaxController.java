@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bs.spring.board.model.dto.Board;
+import com.bs.spring.common.exception.AthenticationException;
 import com.bs.spring.member.model.dto.Member;
 import com.bs.spring.member.service.MemberService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -64,7 +64,8 @@ public class AjaxController {
 	}
 	@GetMapping("/memberlist.do")
 	@ResponseBody
-	public List<Member> memberlist() {
+	public List<Member> memberlist()  {
+//		if(1==1) throw new AthenticationException("권한애러발생0");
 		List<Member> list = memberService.memberlist();
 		log.debug("{}", list);
 		return list;
@@ -74,4 +75,20 @@ public class AjaxController {
 		log.info("{}", m);
 		return m;
 	}
+	
+	//REST API, RESTFul -> session관리안해!(stateless)
+	//URL을 설정할때 간편하게 서비스를 알아볼 수 있는 방식으로 구현하자
+	//URL주소를 설정할때 행위에 대한 표현을 빼자 -> method를 보고 결정하자
+	//method
+	// GET : Data를 조회하는 서비스는 GET
+	// GET localhost:9090/spring/member/{id}1||admin -> 회원 1명 조회
+	// POST : Data를 저장하는 서비스 
+	// PUT : Data를 수정하는 서비스
+	// DELETE : Data를 삭제하는 서비스 
+	// URL주소를 설정할때는 명사로 작성한다.
+	// 예) 회원을 관리하는 서비스
+	// GET localhost:9090/spring/member -> 전체회원조회
+	// POST localhost:9090/spring/member -> 회원추가
+	// PUT localhost:9090/spring/member -> 회원수정
+	// DELETE localhost:9090/spring/member -> 회원삭제
 }

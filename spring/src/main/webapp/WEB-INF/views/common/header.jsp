@@ -61,6 +61,10 @@
 						<span>
 							<a href="${path}/member/mypage.do?userId=${loginMember.userId}"><c:out value="${loginMember.userName}"></c:out></a>님 환영합니다.
 						</span>
+						<button class="btn btn-outline-primary my-2 my-sm-0"
+						onclick="chattingOpen();">
+							채팅하기
+						</button>
 						<button class="btn btn-outline-dark my-2 my-sm-0" onclick="location.replace('${path}/member/logout.do');">
 							로그아웃
 						</button>
@@ -104,3 +108,8 @@
 				</div>
 			</div>
 		</div>
+		<script type="text/javascript">
+			const chattingOpen=()=>{
+				open("${path}/chattingpage","_blank","width=400, height=500");
+			}
+		</script>

@@ -253,6 +253,16 @@
     <version>2.15.2</version>
 </dependency>
 
+<!-- 
+	spirng websocket적용하기 
+	
+ -->
+<dependency>
+	<groupId>org.springframework</groupId>
+	<artifactId>spring-websocket</artifactId>
+	<version>${org.springframework-version}</version>
+</dependency>
+
 
 	</dependencies>
     <build>

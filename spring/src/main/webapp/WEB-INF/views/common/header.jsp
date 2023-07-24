@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="path" value="${pageContext.request.contextPath }"/>
+<c:set var="logininfo" value="${sessionScope.SPRING_SECURITY_CONTEXT.authentication.principal }"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,6 +25,10 @@
 </head>
 <body>
 	<div id="container">
+	<p>
+		시큐리티에 저장된 로그인 정보 확인하기<br>
+		${sessionScope.SPRING_SECURITY_CONTEXT.authentication.principal }<br>
+	</p>
 		<header>
 			<div id="header-container">
 				<h2>${param.title }</h2>
@@ -57,9 +62,9 @@
 						</li>
 					</ul>
 					
-					<c:if test="${loginMember != null }">
+					<c:if test="${logininfo != null }">
 						<span>
-							<a href="${path}/member/mypage.do?userId=${loginMember.userId}"><c:out value="${loginMember.userName}"></c:out></a>님 환영합니다.
+							<a href="${path}/member/mypage.do?userId=${logininfo.username}"><c:out value="${logininfo.username}"></c:out></a>님 환영합니다.
 						</span>
 						<button class="btn btn-outline-primary my-2 my-sm-0"
 						onclick="chattingOpen();">
@@ -69,7 +74,7 @@
 							로그아웃
 						</button>
 					</c:if>
-					<c:if test="${loginMember == null }">
+					<c:if test="${logininfo == null }">
 						<button class="btn btn-outline-success my-2 my-sm-0"
 						data-toggle="modal" data-target="#loginModal">로그인</button>
 						&nbsp;

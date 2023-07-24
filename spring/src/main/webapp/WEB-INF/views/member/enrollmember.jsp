@@ -42,7 +42,7 @@
 				<input type="reset" class="btn btn-outline-success" value="취소">
 			</form> --%>
 			
-			<springform:form modelAttribute="member" name="memberEnrollFrm" action="${path }/member/insertMember.do" method="post" >
+			<springform:form modelAttribute="member" name="memberEnrollFrm" action="${path }/member/loginEnd" method="post" >
 				<springform:input path="userId" type="text" class="form-control" placeholder="아이디 (4글자이상)" name="userId" id="userId_"/>
 				<button type="button" class="btn btn-outline-danger" onclick="checkId();">중복확인</button>
 				<span id="result"></span>

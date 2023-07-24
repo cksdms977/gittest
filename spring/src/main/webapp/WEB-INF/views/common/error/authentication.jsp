@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h3 style="color:red"><%=exception.getMessage() %></h3>
+	<h3 style="color:red"><%=exception !=null?exception.getMessage():"접근권한이 없습니다." %></h3>
 	<h4>3초후 메인화면으로 이동합니다.</h4>
 	<script>
 		setTimeout(()=>{

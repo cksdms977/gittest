@@ -27,7 +27,7 @@ public class SecurityLoginService implements UserDetailsService{
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		Member loginMember = dao.selectMemberById(session, Map.of("userId", username));
 		
-		return null;
+		return loginMember;
 	}
 	
 }

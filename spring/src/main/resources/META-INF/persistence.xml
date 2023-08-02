@@ -19,7 +19,8 @@
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.format_sql" value="true" />
 			<!-- DDL자동실행관련 옵션설정 create, create-drop, update, validate, none -->
-			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<!-- 개발할때는 create쓰면 되지만, 함부로 create를 쓰면 안된다. -->
+			<property name="hibernate.hbm2ddl.auto" value="update"/>
 		</properties>
 	</persistence-unit>
 </persistence>

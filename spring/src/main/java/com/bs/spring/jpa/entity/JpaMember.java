@@ -2,16 +2,21 @@ package com.bs.spring.jpa.entity;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -89,4 +94,12 @@ public class JpaMember {
 	
 	@Embedded
 	private Address addr;
+	
+	
+	//서브클래스는 mappedBy속성을 추가한다.
+	//join컬럼이 없는 반대편 즉, List타입을 받는 곳에 mappedby를 설정하면 됨.
+	//지연로딩을 할수 있음 -> 프록시객체(빈깡통이라고 생각하면 됨)를 먼저 불러오고, 실제 데이터를 사용할때 가져오게 만드는 기술
+	@OneToMany(mappedBy = "boardWriter") //fetch = FetchType.EAGER)//fetch = FetchType.LAZY)
+	List<BoardEntity> boards;
+	
 }

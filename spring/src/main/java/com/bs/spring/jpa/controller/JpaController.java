@@ -23,4 +23,20 @@ public class JpaController {
 		return "redirect:/";
 	}
 	
+	@GetMapping("/manytoone.do")
+	public String manytoone() {
+		service.manytoone();
+		return "redirect:/";
+	}
+	@GetMapping("/onetoone.do")
+	public String onetoone() {
+		service.insertStudent();
+		return "redirect:/";
+	}
+	
+	@GetMapping("/entitydelete.do")
+	public String deletStudent(long no) {
+		service.deleteStudent(no);
+		return "redirect:/";
+	}
 }

@@ -1,4 +1,4 @@
-package com.bs.spring.common;
+ package com.bs.spring.common;
 
 public class PageFactory {
 	

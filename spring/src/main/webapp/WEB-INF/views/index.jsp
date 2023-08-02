@@ -122,5 +122,10 @@
 	</script>
 	<h1>JPA테스트</h1>
 	<h3><a href="${pageContext.request.contextPath }/jpa/basicTest.do">기본 EntityManager이용하기</a></h3>
+		<h3><a href="${pageContext.request.contextPath }/jpa/manytoone.do">기본 EntityManager이용하기</a></h3>
+		
+		<h3><a href="${pageContext.request.contextPath }/jpa/onetoone.do">onetoone단방향관계저장</a></h3>
+		
+		<h3><a href="${pageContext.request.contextPath }/jpa/entitydelete.do?no=1">student삭제하기</a></h3>
 </section>
 <jsp:include page="/WEB-INF/views/common/footer.jsp"/>   

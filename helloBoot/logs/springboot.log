@@ -1,268 +1,42 @@
-2023-07-26 09:48:30.915  INFO 2604 --- [restartedMain] com.bs.helloboot.HelloBootApplication    : Starting HelloBootApplication using Java 17.0.7 on DESKTOP-TH38N6F with PID 2604 (C:\Users\GD\git\repository2\gittest\gittest\helloBoot\target\classes started by GD in C:\Users\GD\git\repository2\gittest\gittest\helloBoot)
-2023-07-26 09:48:30.919 DEBUG 2604 --- [restartedMain] com.bs.helloboot.HelloBootApplication    : Running with Spring Boot v2.7.14-SNAPSHOT, Spring v5.3.29
-2023-07-26 09:48:30.919  INFO 2604 --- [restartedMain] com.bs.helloboot.HelloBootApplication    : No active profile set, falling back to 1 default profile: "default"
-2023-07-26 09:48:30.971  INFO 2604 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\GD\.m2\repository\com\oracle\database\jdbc\ojdbc8\21.5.0.0\ojdbc8-21.5.0.0.jar referenced one or more files that do not exist: file:/C:/Users/GD/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.5.0.0/oraclepki.jar
-2023-07-26 09:48:30.971  INFO 2604 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2023-07-26 09:48:30.971  INFO 2604 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2023-07-26 09:48:31.567  INFO 2604 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
-2023-07-26 09:48:31.581  INFO 2604 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 0 JDBC repository interfaces.
-2023-07-26 09:48:32.437  INFO 2604 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9090 (http)
-2023-07-26 09:48:32.445  INFO 2604 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-07-26 09:48:32.445  INFO 2604 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.78]
-2023-07-26 09:48:32.602  INFO 2604 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
-2023-07-26 09:48:32.609  INFO 2604 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-07-26 09:48:32.609  INFO 2604 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1637 ms
-2023-07-26 09:48:32.714  WARN 2604 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'DBConnectProvider' defined in file [C:\Users\GD\git\repository2\gittest\gittest\helloBoot\target\classes\com\bs\helloboot\config\DBConnectProvider.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.bs.helloboot.config.DBConnectProvider]: No default constructor found; nested exception is java.lang.NoSuchMethodException: com.bs.helloboot.config.DBConnectProvider.<init>()
-2023-07-26 09:48:32.716  INFO 2604 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2023-07-26 09:48:32.756  INFO 2604 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
-
-Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
-2023-07-26 09:48:32.773 ERROR 2604 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
-
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'DBConnectProvider' defined in file [C:\Users\GD\git\repository2\gittest\gittest\helloBoot\target\classes\com\bs\helloboot\config\DBConnectProvider.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.bs.helloboot.config.DBConnectProvider]: No default constructor found; nested exception is java.lang.NoSuchMethodException: com.bs.helloboot.config.DBConnectProvider.<init>()
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1334) ~[spring-beans-5.3.29.jar:5.3.29]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1232) ~[spring-beans-5.3.29.jar:5.3.29]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582) ~[spring-beans-5.3.29.jar:5.3.29]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.29.jar:5.3.29]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.29.jar:5.3.29]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.29.jar:5.3.29]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.29.jar:5.3.29]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.29.jar:5.3.29]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:955) ~[spring-beans-5.3.29.jar:5.3.29]
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:921) ~[spring-context-5.3.29.jar:5.3.29]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.29.jar:5.3.29]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.14-SNAPSHOT.jar:2.7.14-SNAPSHOT]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:731) ~[spring-boot-2.7.14-SNAPSHOT.jar:2.7.14-SNAPSHOT]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.14-SNAPSHOT.jar:2.7.14-SNAPSHOT]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307) ~[spring-boot-2.7.14-SNAPSHOT.jar:2.7.14-SNAPSHOT]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303) ~[spring-boot-2.7.14-SNAPSHOT.jar:2.7.14-SNAPSHOT]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292) ~[spring-boot-2.7.14-SNAPSHOT.jar:2.7.14-SNAPSHOT]
-	at com.bs.helloboot.HelloBootApplication.main(HelloBootApplication.java:10) ~[classes/:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-2.7.14-SNAPSHOT.jar:2.7.14-SNAPSHOT]
-Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.bs.helloboot.config.DBConnectProvider]: No default constructor found; nested exception is java.lang.NoSuchMethodException: com.bs.helloboot.config.DBConnectProvider.<init>()
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:83) ~[spring-beans-5.3.29.jar:5.3.29]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1326) ~[spring-beans-5.3.29.jar:5.3.29]
-	... 22 common frames omitted
-Caused by: java.lang.NoSuchMethodException: com.bs.helloboot.config.DBConnectProvider.<init>()
-	at java.base/java.lang.Class.getConstructor0(Class.java:3585) ~[na:na]
-	at java.base/java.lang.Class.getDeclaredConstructor(Class.java:2754) ~[na:na]
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:78) ~[spring-beans-5.3.29.jar:5.3.29]
-	... 23 common frames omitted
-
-2023-07-26 09:54:30.455  INFO 11912 --- [restartedMain] com.bs.helloboot.HelloBootApplication    : Starting HelloBootApplication using Java 17.0.7 on DESKTOP-TH38N6F with PID 11912 (C:\Users\GD\git\repository2\gittest\gittest\helloBoot\target\classes started by GD in C:\Users\GD\git\repository2\gittest\gittest\helloBoot)
-2023-07-26 09:54:30.455 DEBUG 11912 --- [restartedMain] com.bs.helloboot.HelloBootApplication    : Running with Spring Boot v2.7.14-SNAPSHOT, Spring v5.3.29
-2023-07-26 09:54:30.455  INFO 11912 --- [restartedMain] com.bs.helloboot.HelloBootApplication    : No active profile set, falling back to 1 default profile: "default"
-2023-07-26 09:54:30.490  INFO 11912 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\GD\.m2\repository\com\oracle\database\jdbc\ojdbc8\21.5.0.0\ojdbc8-21.5.0.0.jar referenced one or more files that do not exist: file:/C:/Users/GD/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.5.0.0/oraclepki.jar
-2023-07-26 09:54:30.490  INFO 11912 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2023-07-26 09:54:30.490  INFO 11912 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2023-07-26 09:54:30.964  INFO 11912 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
-2023-07-26 09:54:30.976  INFO 11912 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8 ms. Found 0 JDBC repository interfaces.
-2023-07-26 09:54:31.551  INFO 11912 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9090 (http)
-2023-07-26 09:54:31.558  INFO 11912 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-07-26 09:54:31.559  INFO 11912 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.78]
-2023-07-26 09:54:31.715  INFO 11912 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
-2023-07-26 09:54:31.722  INFO 11912 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-07-26 09:54:31.722  INFO 11912 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1231 ms
-2023-07-26 09:54:31.802  WARN 11912 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'DBConnectProvider' defined in file [C:\Users\GD\git\repository2\gittest\gittest\helloBoot\target\classes\com\bs\helloboot\config\DBConnectProvider.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.bs.helloboot.config.DBConnectProvider]: No default constructor found; nested exception is java.lang.NoSuchMethodException: com.bs.helloboot.config.DBConnectProvider.<init>()
-2023-07-26 09:54:31.804  INFO 11912 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2023-07-26 09:54:31.840  INFO 11912 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
-
-Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
-2023-07-26 09:54:31.856 ERROR 11912 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
-
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'DBConnectProvider' defined in file [C:\Users\GD\git\repository2\gittest\gittest\helloBoot\target\classes\com\bs\helloboot\config\DBConnectProvider.class]: Instantiation of bean failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.bs.helloboot.config.DBConnectProvider]: No default constructor found; nested exception is java.lang.NoSuchMethodException: com.bs.helloboot.config.DBConnectProvider.<init>()
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1334) ~[spring-beans-5.3.29.jar:5.3.29]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1232) ~[spring-beans-5.3.29.jar:5.3.29]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582) ~[spring-beans-5.3.29.jar:5.3.29]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.29.jar:5.3.29]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.29.jar:5.3.29]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.29.jar:5.3.29]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.29.jar:5.3.29]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.29.jar:5.3.29]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:955) ~[spring-beans-5.3.29.jar:5.3.29]
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:921) ~[spring-context-5.3.29.jar:5.3.29]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.29.jar:5.3.29]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.14-SNAPSHOT.jar:2.7.14-SNAPSHOT]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:731) ~[spring-boot-2.7.14-SNAPSHOT.jar:2.7.14-SNAPSHOT]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.14-SNAPSHOT.jar:2.7.14-SNAPSHOT]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307) ~[spring-boot-2.7.14-SNAPSHOT.jar:2.7.14-SNAPSHOT]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303) ~[spring-boot-2.7.14-SNAPSHOT.jar:2.7.14-SNAPSHOT]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292) ~[spring-boot-2.7.14-SNAPSHOT.jar:2.7.14-SNAPSHOT]
-	at com.bs.helloboot.HelloBootApplication.main(HelloBootApplication.java:10) ~[classes/:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-2.7.14-SNAPSHOT.jar:2.7.14-SNAPSHOT]
-Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.bs.helloboot.config.DBConnectProvider]: No default constructor found; nested exception is java.lang.NoSuchMethodException: com.bs.helloboot.config.DBConnectProvider.<init>()
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:83) ~[spring-beans-5.3.29.jar:5.3.29]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:1326) ~[spring-beans-5.3.29.jar:5.3.29]
-	... 22 common frames omitted
-Caused by: java.lang.NoSuchMethodException: com.bs.helloboot.config.DBConnectProvider.<init>()
-	at java.base/java.lang.Class.getConstructor0(Class.java:3585) ~[na:na]
-	at java.base/java.lang.Class.getDeclaredConstructor(Class.java:2754) ~[na:na]
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:78) ~[spring-beans-5.3.29.jar:5.3.29]
-	... 23 common frames omitted
-
-2023-07-26 09:55:16.861  INFO 6652 --- [restartedMain] com.bs.helloboot.HelloBootApplication    : Starting HelloBootApplication using Java 17.0.7 on DESKTOP-TH38N6F with PID 6652 (C:\Users\GD\git\repository2\gittest\gittest\helloBoot\target\classes started by GD in C:\Users\GD\git\repository2\gittest\gittest\helloBoot)
-2023-07-26 09:55:16.862 DEBUG 6652 --- [restartedMain] com.bs.helloboot.HelloBootApplication    : Running with Spring Boot v2.7.14-SNAPSHOT, Spring v5.3.29
-2023-07-26 09:55:16.862  INFO 6652 --- [restartedMain] com.bs.helloboot.HelloBootApplication    : No active profile set, falling back to 1 default profile: "default"
-2023-07-26 09:55:16.900  INFO 6652 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\GD\.m2\repository\com\oracle\database\jdbc\ojdbc8\21.5.0.0\ojdbc8-21.5.0.0.jar referenced one or more files that do not exist: file:/C:/Users/GD/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.5.0.0/oraclepki.jar
-2023-07-26 09:55:16.900  INFO 6652 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2023-07-26 09:55:16.900  INFO 6652 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2023-07-26 09:55:17.307  INFO 6652 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
-2023-07-26 09:55:17.319  INFO 6652 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8 ms. Found 0 JDBC repository interfaces.
-2023-07-26 09:55:17.944  INFO 6652 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9090 (http)
-2023-07-26 09:55:17.952  INFO 6652 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-07-26 09:55:17.952  INFO 6652 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.78]
-2023-07-26 09:55:18.102  INFO 6652 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
-2023-07-26 09:55:18.109  INFO 6652 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-07-26 09:55:18.110  INFO 6652 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1209 ms
-2023-07-26 09:55:18.357 DEBUG 6652 --- [restartedMain] com.bs.helloboot.common.aop.LoggerAop    : ============== aop before ===============
-2023-07-26 09:55:18.357 DEBUG 6652 --- [restartedMain] com.bs.helloboot.common.aop.LoggerAop    : com.bs.helloboot.config.MyWebMvcConfigration registerWebSocketHandlers
-2023-07-26 09:55:18.357 DEBUG 6652 --- [restartedMain] com.bs.helloboot.common.aop.LoggerAop    : =========================================
-2023-07-26 09:55:18.419 DEBUG 6652 --- [restartedMain] com.bs.helloboot.common.aop.LoggerAop    : ============== aop before ===============
-2023-07-26 09:55:18.419 DEBUG 6652 --- [restartedMain] com.bs.helloboot.common.aop.LoggerAop    : com.bs.helloboot.config.MyWebMvcConfigration addInterceptors
-2023-07-26 09:55:18.419 DEBUG 6652 --- [restartedMain] com.bs.helloboot.common.aop.LoggerAop    : =========================================
-2023-07-26 09:55:18.426 DEBUG 6652 --- [restartedMain] com.bs.helloboot.common.aop.LoggerAop    : ============== aop before ===============
-2023-07-26 09:55:18.426 DEBUG 6652 --- [restartedMain] com.bs.helloboot.common.aop.LoggerAop    : com.bs.helloboot.config.MyWebMvcConfigration addCorsMappings
-2023-07-26 09:55:18.426 DEBUG 6652 --- [restartedMain] com.bs.helloboot.common.aop.LoggerAop    : =========================================
-2023-07-26 09:55:18.456 DEBUG 6652 --- [restartedMain] com.bs.helloboot.common.aop.LoggerAop    : ============== aop before ===============
-2023-07-26 09:55:18.456 DEBUG 6652 --- [restartedMain] com.bs.helloboot.common.aop.LoggerAop    : com.bs.helloboot.config.MyWebMvcConfigration addViewControllers
-2023-07-26 09:55:18.456 DEBUG 6652 --- [restartedMain] com.bs.helloboot.common.aop.LoggerAop    : =========================================
-2023-07-26 09:55:18.533 DEBUG 6652 --- [restartedMain] com.bs.helloboot.common.aop.LoggerAop    : ============== aop before ===============
-2023-07-26 09:55:18.533 DEBUG 6652 --- [restartedMain] com.bs.helloboot.common.aop.LoggerAop    : com.bs.helloboot.config.MyWebMvcConfigration handleExceptionResolver
-2023-07-26 09:55:18.533 DEBUG 6652 --- [restartedMain] com.bs.helloboot.common.aop.LoggerAop    : =========================================
-2023-07-26 09:55:18.607 DEBUG 6652 --- [restartedMain] com.bs.helloboot.common.aop.LoggerAop    : ============== aop before ===============
-2023-07-26 09:55:18.608 DEBUG 6652 --- [restartedMain] com.bs.helloboot.common.aop.LoggerAop    : com.bs.helloboot.config.SecurityConfig authenticationPath
-2023-07-26 09:55:18.608 DEBUG 6652 --- [restartedMain] com.bs.helloboot.common.aop.LoggerAop    : =========================================
-2023-07-26 09:55:18.619  WARN 6652 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration': Unsatisfied dependency expressed through method 'setFilterChains' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'authenticationPath' defined in class path resource [com/bs/helloboot/config/SecurityConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.security.web.SecurityFilterChain]: Factory method 'authenticationPath' threw exception; nested exception is java.lang.IllegalArgumentException: 'erroLogin' is not a valid forward URL
-2023-07-26 09:55:18.622  INFO 6652 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2023-07-26 09:55:18.633  INFO 6652 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
-
-Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
-2023-07-26 09:55:18.654 ERROR 6652 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
-
-org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration': Unsatisfied dependency expressed through method 'setFilterChains' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'authenticationPath' defined in class path resource [com/bs/helloboot/config/SecurityConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.security.web.SecurityFilterChain]: Factory method 'authenticationPath' threw exception; nested exception is java.lang.IllegalArgumentException: 'erroLogin' is not a valid forward URL
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.resolveMethodArguments(AutowiredAnnotationBeanPostProcessor.java:774) ~[spring-beans-5.3.29.jar:5.3.29]
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.inject(AutowiredAnnotationBeanPostProcessor.java:727) ~[spring-beans-5.3.29.jar:5.3.29]
-	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:119) ~[spring-beans-5.3.29.jar:5.3.29]
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399) ~[spring-beans-5.3.29.jar:5.3.29]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1431) ~[spring-beans-5.3.29.jar:5.3.29]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619) ~[spring-beans-5.3.29.jar:5.3.29]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.29.jar:5.3.29]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.29.jar:5.3.29]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.29.jar:5.3.29]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.29.jar:5.3.29]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.29.jar:5.3.29]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:955) ~[spring-beans-5.3.29.jar:5.3.29]
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:921) ~[spring-context-5.3.29.jar:5.3.29]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.29.jar:5.3.29]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.14-SNAPSHOT.jar:2.7.14-SNAPSHOT]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:731) ~[spring-boot-2.7.14-SNAPSHOT.jar:2.7.14-SNAPSHOT]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.14-SNAPSHOT.jar:2.7.14-SNAPSHOT]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307) ~[spring-boot-2.7.14-SNAPSHOT.jar:2.7.14-SNAPSHOT]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303) ~[spring-boot-2.7.14-SNAPSHOT.jar:2.7.14-SNAPSHOT]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292) ~[spring-boot-2.7.14-SNAPSHOT.jar:2.7.14-SNAPSHOT]
-	at com.bs.helloboot.HelloBootApplication.main(HelloBootApplication.java:10) ~[classes/:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
-	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-2.7.14-SNAPSHOT.jar:2.7.14-SNAPSHOT]
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'authenticationPath' defined in class path resource [com/bs/helloboot/config/SecurityConfig.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.security.web.SecurityFilterChain]: Factory method 'authenticationPath' threw exception; nested exception is java.lang.IllegalArgumentException: 'erroLogin' is not a valid forward URL
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:658) ~[spring-beans-5.3.29.jar:5.3.29]
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:638) ~[spring-beans-5.3.29.jar:5.3.29]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1352) ~[spring-beans-5.3.29.jar:5.3.29]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1195) ~[spring-beans-5.3.29.jar:5.3.29]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582) ~[spring-beans-5.3.29.jar:5.3.29]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.29.jar:5.3.29]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.29.jar:5.3.29]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.29.jar:5.3.29]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.29.jar:5.3.29]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.29.jar:5.3.29]
-	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.3.29.jar:5.3.29]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.addCandidateEntry(DefaultListableBeanFactory.java:1609) ~[spring-beans-5.3.29.jar:5.3.29]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:1573) ~[spring-beans-5.3.29.jar:5.3.29]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveMultipleBeans(DefaultListableBeanFactory.java:1462) ~[spring-beans-5.3.29.jar:5.3.29]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1349) ~[spring-beans-5.3.29.jar:5.3.29]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311) ~[spring-beans-5.3.29.jar:5.3.29]
-	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredMethodElement.resolveMethodArguments(AutowiredAnnotationBeanPostProcessor.java:766) ~[spring-beans-5.3.29.jar:5.3.29]
-	... 25 common frames omitted
-Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.security.web.SecurityFilterChain]: Factory method 'authenticationPath' threw exception; nested exception is java.lang.IllegalArgumentException: 'erroLogin' is not a valid forward URL
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185) ~[spring-beans-5.3.29.jar:5.3.29]
-	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653) ~[spring-beans-5.3.29.jar:5.3.29]
-	... 41 common frames omitted
-Caused by: java.lang.IllegalArgumentException: 'erroLogin' is not a valid forward URL
-	at org.springframework.util.Assert.isTrue(Assert.java:139) ~[spring-core-5.3.29.jar:5.3.29]
-	at org.springframework.security.web.authentication.ForwardAuthenticationFailureHandler.<init>(ForwardAuthenticationFailureHandler.java:46) ~[spring-security-web-5.7.10-SNAPSHOT.jar:5.7.10-SNAPSHOT]
-	at org.springframework.security.config.annotation.web.configurers.FormLoginConfigurer.failureForwardUrl(FormLoginConfigurer.java:215) ~[spring-security-config-5.7.10-SNAPSHOT.jar:5.7.10-SNAPSHOT]
-	at com.bs.helloboot.config.SecurityConfig.authenticationPath(SecurityConfig.java:33) ~[classes/:na]
-	at com.bs.helloboot.config.SecurityConfig$$EnhancerBySpringCGLIB$$4cd5aef1.CGLIB$authenticationPath$0(<generated>) ~[classes/:na]
-	at com.bs.helloboot.config.SecurityConfig$$EnhancerBySpringCGLIB$$4cd5aef1$$FastClassBySpringCGLIB$$38e54874.invoke(<generated>) ~[classes/:na]
-	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:244) ~[spring-core-5.3.29.jar:5.3.29]
-	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:331) ~[spring-context-5.3.29.jar:5.3.29]
-	at com.bs.helloboot.config.SecurityConfig$$EnhancerBySpringCGLIB$$4cd5aef1.authenticationPath(<generated>) ~[classes/:na]
-	at com.bs.helloboot.config.SecurityConfig$$FastClassBySpringCGLIB$$bce86134.invoke(<generated>) ~[classes/:na]
-	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.3.29.jar:5.3.29]
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:793) ~[spring-aop-5.3.29.jar:5.3.29]
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.3.29.jar:5.3.29]
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763) ~[spring-aop-5.3.29.jar:5.3.29]
-	at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:58) ~[spring-aop-5.3.29.jar:5.3.29]
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.29.jar:5.3.29]
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763) ~[spring-aop-5.3.29.jar:5.3.29]
-	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-5.3.29.jar:5.3.29]
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.29.jar:5.3.29]
-	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:763) ~[spring-aop-5.3.29.jar:5.3.29]
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:708) ~[spring-aop-5.3.29.jar:5.3.29]
-	at com.bs.helloboot.config.SecurityConfig$$EnhancerBySpringCGLIB$$6da279cb.authenticationPath(<generated>) ~[classes/:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
-	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154) ~[spring-beans-5.3.29.jar:5.3.29]
-	... 42 common frames omitted
-
-2023-07-26 09:55:44.729  INFO 8900 --- [restartedMain] com.bs.helloboot.HelloBootApplication    : Starting HelloBootApplication using Java 17.0.7 on DESKTOP-TH38N6F with PID 8900 (C:\Users\GD\git\repository2\gittest\gittest\helloBoot\target\classes started by GD in C:\Users\GD\git\repository2\gittest\gittest\helloBoot)
-2023-07-26 09:55:44.729 DEBUG 8900 --- [restartedMain] com.bs.helloboot.HelloBootApplication    : Running with Spring Boot v2.7.14-SNAPSHOT, Spring v5.3.29
-2023-07-26 09:55:44.730  INFO 8900 --- [restartedMain] com.bs.helloboot.HelloBootApplication    : No active profile set, falling back to 1 default profile: "default"
-2023-07-26 09:55:44.768  INFO 8900 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\GD\.m2\repository\com\oracle\database\jdbc\ojdbc8\21.5.0.0\ojdbc8-21.5.0.0.jar referenced one or more files that do not exist: file:/C:/Users/GD/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.5.0.0/oraclepki.jar
-2023-07-26 09:55:44.768  INFO 8900 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2023-07-26 09:55:44.768  INFO 8900 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2023-07-26 09:55:45.173  INFO 8900 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
-2023-07-26 09:55:45.185  INFO 8900 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8 ms. Found 0 JDBC repository interfaces.
-2023-07-26 09:55:45.765  INFO 8900 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9090 (http)
-2023-07-26 09:55:45.772  INFO 8900 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2023-07-26 09:55:45.773  INFO 8900 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.78]
-2023-07-26 09:55:45.926  INFO 8900 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
-2023-07-26 09:55:45.933  INFO 8900 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2023-07-26 09:55:45.934  INFO 8900 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1165 ms
-2023-07-26 09:55:46.182 DEBUG 8900 --- [restartedMain] com.bs.helloboot.common.aop.LoggerAop    : ============== aop before ===============
-2023-07-26 09:55:46.182 DEBUG 8900 --- [restartedMain] com.bs.helloboot.common.aop.LoggerAop    : com.bs.helloboot.config.MyWebMvcConfigration registerWebSocketHandlers
-2023-07-26 09:55:46.182 DEBUG 8900 --- [restartedMain] com.bs.helloboot.common.aop.LoggerAop    : =========================================
-2023-07-26 09:55:46.242 DEBUG 8900 --- [restartedMain] com.bs.helloboot.common.aop.LoggerAop    : ============== aop before ===============
-2023-07-26 09:55:46.242 DEBUG 8900 --- [restartedMain] com.bs.helloboot.common.aop.LoggerAop    : com.bs.helloboot.config.MyWebMvcConfigration addInterceptors
-2023-07-26 09:55:46.242 DEBUG 8900 --- [restartedMain] com.bs.helloboot.common.aop.LoggerAop    : =========================================
-2023-07-26 09:55:46.251 DEBUG 8900 --- [restartedMain] com.bs.helloboot.common.aop.LoggerAop    : ============== aop before ===============
-2023-07-26 09:55:46.251 DEBUG 8900 --- [restartedMain] com.bs.helloboot.common.aop.LoggerAop    : com.bs.helloboot.config.MyWebMvcConfigration addCorsMappings
-2023-07-26 09:55:46.251 DEBUG 8900 --- [restartedMain] com.bs.helloboot.common.aop.LoggerAop    : =========================================
-2023-07-26 09:55:46.279 DEBUG 8900 --- [restartedMain] com.bs.helloboot.common.aop.LoggerAop    : ============== aop before ===============
-2023-07-26 09:55:46.279 DEBUG 8900 --- [restartedMain] com.bs.helloboot.common.aop.LoggerAop    : com.bs.helloboot.config.MyWebMvcConfigration addViewControllers
-2023-07-26 09:55:46.279 DEBUG 8900 --- [restartedMain] com.bs.helloboot.common.aop.LoggerAop    : =========================================
-2023-07-26 09:55:46.351 DEBUG 8900 --- [restartedMain] com.bs.helloboot.common.aop.LoggerAop    : ============== aop before ===============
-2023-07-26 09:55:46.351 DEBUG 8900 --- [restartedMain] com.bs.helloboot.common.aop.LoggerAop    : com.bs.helloboot.config.MyWebMvcConfigration handleExceptionResolver
-2023-07-26 09:55:46.351 DEBUG 8900 --- [restartedMain] com.bs.helloboot.common.aop.LoggerAop    : =========================================
-2023-07-26 09:55:46.430 DEBUG 8900 --- [restartedMain] com.bs.helloboot.common.aop.LoggerAop    : ============== aop before ===============
-2023-07-26 09:55:46.430 DEBUG 8900 --- [restartedMain] com.bs.helloboot.common.aop.LoggerAop    : com.bs.helloboot.config.SecurityConfig authenticationPath
-2023-07-26 09:55:46.430 DEBUG 8900 --- [restartedMain] com.bs.helloboot.common.aop.LoggerAop    : =========================================
-2023-07-26 09:55:46.467  INFO 8900 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@42d70a10, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@11dbdebd, org.springframework.security.web.context.SecurityContextPersistenceFilter@d8c664b, org.springframework.security.web.header.HeaderWriterFilter@7ebebb00, org.springframework.security.web.authentication.logout.LogoutFilter@6416c394, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@2b671c72, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@487e5986, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@20278a62, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7be6b049, org.springframework.security.web.session.SessionManagementFilter@e37976a, org.springframework.security.web.access.ExceptionTranslationFilter@582ab5bf, org.springframework.security.web.access.intercept.AuthorizationFilter@a0c1b74]
-2023-07-26 09:55:46.640  INFO 8900 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-07-26 09:55:46.905  INFO 8900 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-07-26 09:55:47.058  INFO 8900 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2023-07-26 09:55:47.100  INFO 8900 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9090 (http) with context path ''
-2023-07-26 09:55:47.110  INFO 8900 --- [restartedMain] com.bs.helloboot.HelloBootApplication    : Started HelloBootApplication in 2.678 seconds (JVM running for 3.257)
-2023-07-26 14:22:10.749  WARN 8900 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=20m50s993ms203µs800ns).
+2023-08-01 09:25:18.638  INFO 14184 --- [restartedMain] com.bs.helloboot.HelloBootApplication    : Starting HelloBootApplication using Java 17.0.7 on DESKTOP-TH38N6F with PID 14184 (C:\Users\GD\git\repository2\gittest\gittest\helloBoot\target\classes started by GD in C:\Users\GD\git\repository2\gittest\gittest\helloBoot)
+2023-08-01 09:25:18.641 DEBUG 14184 --- [restartedMain] com.bs.helloboot.HelloBootApplication    : Running with Spring Boot v2.7.14-SNAPSHOT, Spring v5.3.29
+2023-08-01 09:25:18.641  INFO 14184 --- [restartedMain] com.bs.helloboot.HelloBootApplication    : No active profile set, falling back to 1 default profile: "default"
+2023-08-01 09:25:18.689  INFO 14184 --- [restartedMain] o.s.b.devtools.restart.ChangeableUrls    : The Class-Path manifest attribute in C:\Users\GD\.m2\repository\com\oracle\database\jdbc\ojdbc8\21.5.0.0\ojdbc8-21.5.0.0.jar referenced one or more files that do not exist: file:/C:/Users/GD/.m2/repository/com/oracle/database/jdbc/ojdbc8/21.5.0.0/oraclepki.jar
+2023-08-01 09:25:18.690  INFO 14184 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-08-01 09:25:18.690  INFO 14184 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-08-01 09:25:19.292  INFO 14184 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2023-08-01 09:25:19.306  INFO 14184 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10 ms. Found 0 JDBC repository interfaces.
+2023-08-01 09:25:20.051  INFO 14184 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9090 (http)
+2023-08-01 09:25:20.060  INFO 14184 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-08-01 09:25:20.060  INFO 14184 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.78]
+2023-08-01 09:25:20.229  INFO 14184 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2023-08-01 09:25:20.237  INFO 14184 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-08-01 09:25:20.238  INFO 14184 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1548 ms
+2023-08-01 09:25:20.489 DEBUG 14184 --- [restartedMain] com.bs.helloboot.common.aop.LoggerAop    : ============== aop before ===============
+2023-08-01 09:25:20.490 DEBUG 14184 --- [restartedMain] com.bs.helloboot.common.aop.LoggerAop    : com.bs.helloboot.config.MyWebMvcConfigration registerWebSocketHandlers
+2023-08-01 09:25:20.493 DEBUG 14184 --- [restartedMain] com.bs.helloboot.common.aop.LoggerAop    : =========================================
+2023-08-01 09:25:20.550 DEBUG 14184 --- [restartedMain] com.bs.helloboot.common.aop.LoggerAop    : ============== aop before ===============
+2023-08-01 09:25:20.550 DEBUG 14184 --- [restartedMain] com.bs.helloboot.common.aop.LoggerAop    : com.bs.helloboot.config.MyWebMvcConfigration addInterceptors
+2023-08-01 09:25:20.550 DEBUG 14184 --- [restartedMain] com.bs.helloboot.common.aop.LoggerAop    : =========================================
+2023-08-01 09:25:20.558 DEBUG 14184 --- [restartedMain] com.bs.helloboot.common.aop.LoggerAop    : ============== aop before ===============
+2023-08-01 09:25:20.558 DEBUG 14184 --- [restartedMain] com.bs.helloboot.common.aop.LoggerAop    : com.bs.helloboot.config.MyWebMvcConfigration addCorsMappings
+2023-08-01 09:25:20.558 DEBUG 14184 --- [restartedMain] com.bs.helloboot.common.aop.LoggerAop    : =========================================
+2023-08-01 09:25:20.586 DEBUG 14184 --- [restartedMain] com.bs.helloboot.common.aop.LoggerAop    : ============== aop before ===============
+2023-08-01 09:25:20.586 DEBUG 14184 --- [restartedMain] com.bs.helloboot.common.aop.LoggerAop    : com.bs.helloboot.config.MyWebMvcConfigration addViewControllers
+2023-08-01 09:25:20.586 DEBUG 14184 --- [restartedMain] com.bs.helloboot.common.aop.LoggerAop    : =========================================
+2023-08-01 09:25:20.662 DEBUG 14184 --- [restartedMain] com.bs.helloboot.common.aop.LoggerAop    : ============== aop before ===============
+2023-08-01 09:25:20.662 DEBUG 14184 --- [restartedMain] com.bs.helloboot.common.aop.LoggerAop    : com.bs.helloboot.config.MyWebMvcConfigration handleExceptionResolver
+2023-08-01 09:25:20.662 DEBUG 14184 --- [restartedMain] com.bs.helloboot.common.aop.LoggerAop    : =========================================
+2023-08-01 09:25:20.740 DEBUG 14184 --- [restartedMain] com.bs.helloboot.common.aop.LoggerAop    : ============== aop before ===============
+2023-08-01 09:25:20.740 DEBUG 14184 --- [restartedMain] com.bs.helloboot.common.aop.LoggerAop    : com.bs.helloboot.config.SecurityConfig authenticationPath
+2023-08-01 09:25:20.740 DEBUG 14184 --- [restartedMain] com.bs.helloboot.common.aop.LoggerAop    : =========================================
+2023-08-01 09:25:20.771  INFO 14184 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1605daba, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6773c877, org.springframework.security.web.context.SecurityContextPersistenceFilter@26ca9be9, org.springframework.security.web.header.HeaderWriterFilter@2cfa001, org.springframework.security.web.authentication.logout.LogoutFilter@535654dc, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@787aa11e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@64385c22, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3b276d27, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@72a88f99, org.springframework.security.web.session.SessionManagementFilter@3e9dc8bd, org.springframework.security.web.access.ExceptionTranslationFilter@475ba493, org.springframework.security.web.access.intercept.AuthorizationFilter@4223d95]
+2023-08-01 09:25:20.916  INFO 14184 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-08-01 09:25:21.209  INFO 14184 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-08-01 09:25:21.343  INFO 14184 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-08-01 09:25:21.383  INFO 14184 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9090 (http) with context path ''
+2023-08-01 09:25:21.393  INFO 14184 --- [restartedMain] com.bs.helloboot.HelloBootApplication    : Started HelloBootApplication in 3.109 seconds (JVM running for 3.686)
+2023-08-01 09:26:01.418  INFO 14184 --- [RMI TCP Connection(9)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2023-08-01 09:26:01.433  INFO 14184 --- [RMI TCP Connection(9)-127.0.0.1] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-08-01 09:26:01.440  INFO 14184 --- [RMI TCP Connection(9)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-08-01 09:26:01.451  INFO 14184 --- [RMI TCP Connection(9)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

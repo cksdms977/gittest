@@ -26,4 +26,32 @@ public class JpaServiceImpl implements JpaService {
 		et.commit();
 //		et.rollback();
 	}
+
+	@Override
+	public void manytoone() {
+		EntityTransaction et = em.getTransaction();
+		et.begin();
+		dao.manytoone(em);
+		et.commit();
+//		em.clear(); // 여기서 영속성 컨테스트를 클리어 해주면 된다.
+		dao.boardById(em, 1);
+		
+	}
+
+	@Override
+	public void insertStudent() {
+		EntityTransaction et = em.getTransaction();
+		dao.insertStudent(em);
+		et.commit();
+		em.clear();
+		dao.selectStudentById(em, 1);
+	}
+
+	@Override
+	public void deleteStudent(long no) {
+		EntityTransaction et = em.getTransaction();
+		et.begin();
+		dao.deleteStudent(em,no);
+		et.commit();
+	}
 }
